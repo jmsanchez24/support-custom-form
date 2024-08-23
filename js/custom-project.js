@@ -2,10 +2,12 @@ var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
 
 function showTab(n) {
-  // This function will display the specified tab of the form ...
+  // This function will display the specified tab of the form...
   var x = document.getElementsByClassName("tab");
-  x[n].style.display = "block";
-  // ... and fix the Previous/Next buttons:
+  x[n].setAttribute("style", "display:block;");
+  
+  //... and fix the Previous/Next buttons:
+  console.log(n);
   if (n == 0) {
     document.getElementById("prevBtn").style.display = "none";
   } else {
@@ -16,7 +18,7 @@ function showTab(n) {
   } else {
     document.getElementById("nextBtn").innerHTML = "Next";
   }
-  // ... and run a function that displays the correct step indicator:
+  //... and run a function that will display the correct step indicator:
   fixStepIndicator(n)
 }
 
@@ -29,12 +31,6 @@ function nextPrev(n) {
   x[currentTab].style.display = "none";
   // Increase or decrease the current tab by 1:
   currentTab = currentTab + n;
-  // if you have reached the end of the form... :
-  if (currentTab >= x.length) {
-    //...the form gets submitted:
-    document.getElementById("regForm").submit();
-    return false;
-  }
   // Otherwise, display the correct tab:
   showTab(currentTab);
 }
@@ -50,7 +46,7 @@ function validateForm() {
     if (y[i].value == "") {
       // add an "invalid" class to the field:
       y[i].className += " invalid";
-      // and set the current valid status to false:
+      // and set the current valid status to false
       valid = false;
     }
   }
@@ -67,6 +63,6 @@ function fixStepIndicator(n) {
   for (i = 0; i < x.length; i++) {
     x[i].className = x[i].className.replace(" active", "");
   }
-  //... and adds the "active" class to the current step:
+  //... and adds the "active" class on the current step:
   x[n].className += " active";
 }
