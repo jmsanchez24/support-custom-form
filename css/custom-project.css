@@ -7,44 +7,35 @@
   }
   
   #regForm {
-    background-color: #ffffff;
+    background-color: #370B55;
     margin: 100px auto;
-    font-family: Raleway;
+    font-family: sans-serif;
     padding: 40px;
-    width: 70%;
+    width: 50%;
     min-width: 300px;
+    border-radius: 12px;
+    color: #fff;
   }
   
   h1 {
     text-align: center;  
   }
   
-  input {
-    padding: 10px;
-    width: 100%;
-    font-size: 17px;
-    font-family: Raleway;
-    border: 1px solid #aaaaaa;
-  }
-  
-  /* Mark input boxes that gets an error on validation: */
-  input.invalid {
-    background-color: #ffdddd;
-  }
   
   /* Hide all steps by default: */
   .tab {
     display: none;
   }
+
   
   button {
-    background-color: #04AA6D;
+    background-color: #4D4D4D;
     color: #ffffff;
     border: none;
     padding: 10px 20px;
     font-size: 17px;
-    font-family: Raleway;
     cursor: pointer;
+    border-radius: 6px;
   }
   
   button:hover {
@@ -55,23 +46,50 @@
     background-color: #bbbbbb;
   }
   
-  /* Make circles that indicate the steps of the form: */
-  .step {
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbbbbb;
-    border: none;  
-    border-radius: 50%;
-    display: inline-block;
-    opacity: 0.5;
+ .support-process table, .support-process td, .support-process th {
+    border: 1px solid;
   }
   
-  .step.active {
-    opacity: 1;
+  .support-process table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #8136B2;
   }
-  
-  /* Mark the steps that are finished and valid: */
-  .step.finish {
-    background-color: #04AA6D;
+  .support-process table td{
+    padding: 10px;
   }
+  input[type="radio"] {
+    opacity: 0;
+    width: 2rem;
+    height: 1em;
+    background-color: #fff;
+    position: absolute;
+  }
+  label {
+    background-color: #a74dce;
+    color: #000;
+    border: 1px solid #000;
+    display: block;
+    padding: 10px;
+    width: 36%;
+    text-align: center;
+    border-radius: 6px;
+    color: #fff;;
+}
+  input[type="radio"]:checked+label {
+    background-color: #65299d;
+    color: #fff;
+  }
+ .formPagination{
+    overflow:auto;
+    margin-top: 20px;
+ }
+.customOptions {
+    display: flex;
+}
+.customOptions .option-colum {
+    flex: 1;
+}
+.customOptions label{
+    width: 100%;
+}
