@@ -89,6 +89,7 @@
 }
 .customOptions .option-colum {
     flex: 1;
+    margin: 0px 10px;
 }
 .customOptions label{
     width: 100%;
