@@ -25,6 +25,7 @@
   /* Hide all steps by default: */
   .tab {
     display: none;
+    text-align: center;
   }
 
   
@@ -65,13 +66,13 @@
     background-color: #fff;
     position: absolute;
   }
-  label {
+  .customOptions.question label, label {
     background-color: #a74dce;
     color: #000;
     border: 1px solid #000;
     display: block;
     padding: 10px;
-    width: 36%;
+    width: 30%;
     text-align: center;
     border-radius: 6px;
     color: #fff;;
@@ -93,4 +94,9 @@
 }
 .customOptions label{
     width: 100%;
+}
+.customOptions.question .option-colum {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
 }
