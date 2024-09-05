@@ -1,37 +1,71 @@
-var currentTab = 0; // Current tab is set to be the first tab (0)
-showTab(currentTab); // Display the current tab
+(function($) {
+jQuery(document).ready(function(){
+  $("#formDisplay").load("flows/initial-flow.html");
 
-function showTab(n) {
-  // This function will display the specified tab of the form...
-  var x = document.getElementsByClassName("tab");
 
-  x[n].setAttribute("style", "display:block;");
+  $('#prevBtn').click(function(){
+      prevslide();
+  }); 
+
+  $('#nextBtn').click(function(){
+    if(validateOption()){
+      nextslide();
+    }
+    
+  }); 
+});
+
+
+function nextslide() {
+  var nextTab = $(".active").next();
+  var currentTab = $(".active");
+
+  if(!nextTab.hasClass("last-tab")){
+    $('#nextBtn').show();
+    $('#prevBtn').show();
+  }else{
+    $('#nextBtn').hide();
+  }
   
-  //... and fix the Previous/Next buttons:
-  if (n == 0) {
-    document.getElementById("prevBtn").style.display = "none";
-  } else {
-    document.getElementById("prevBtn").style.display = "inline";
-  }
-  if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "Submit";
-  } else {
-    document.getElementById("nextBtn").innerHTML = "Next";
-  }
+  $(".active").removeClass("active");
+  nextTab.addClass("active");
+
 }
 
-function nextPrev(n) {
-  // This function will figure out which tab to display
-  var x = document.getElementsByClassName("tab");
-
-  // Hide the current tab:
-  x[currentTab].style.display = "none";
-  // Increase or decrease the current tab by 1:
-  currentTab = currentTab + n;
-  // Otherwise, display the correct tab:
-  document.querySelector('input[name="is_prod"').checked = false;
+function prevslide() {
+  var prevTab = $(".active").prev();
+  var currentTab = $(".active");
 
 
-  showTab(currentTab);
+  if(!prevTab.hasClass("initial-tab")){
+    $('#nextBtn').show();
+    $('#prevBtn').show();
+  }else{
+    $('#prevBtn').hide();
+  }
+  
+  $(".active").removeClass("active");
+  prevTab.addClass("active");
 }
 
+function validateOption(){
+  var currentTabOptionChecked = $('.active input[type=radio]:checked').val();
+
+  if(!currentTabOptionChecked){
+
+    if( !$(".active p").hasClass("invalid")){
+      $(".active p").append("<span class='invalid-message'>*Please make a selection</span>");
+      $(".active p").addClass("invalid");
+    }
+
+    return false;
+  }else{
+    $(".active p").removeClass("invalid");
+    $(".invalid-message").remove();
+    return true;
+  }
+
+
+}
+
+}(jQuery));

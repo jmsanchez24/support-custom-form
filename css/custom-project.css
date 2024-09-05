@@ -28,7 +28,18 @@
     text-align: center;
   }
 
-  
+  .tab.active{
+    display: block;
+  }
+
+  span.invalid-message {
+    color: #fff;
+    background: red;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 7px;
+  }
+
   button {
     background-color: #4D4D4D;
     color: #ffffff;
@@ -44,7 +55,8 @@
   }
   
   #prevBtn {
-    background-color: #bbbbbb;
+    background-color: ##4D4D;
+    display: none;
   }
   
  .support-process table, .support-process td, .support-process th {
