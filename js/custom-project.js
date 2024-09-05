@@ -1,6 +1,6 @@
 (function($) {
 jQuery(document).ready(function(){
-  $("#regForm").load("flows/initial-flow.html");
+  $("#FormUpdate").load("flows/initial-flow.html");
 
 
   $(document).on('click', '#prevBtn', function(){
@@ -21,7 +21,7 @@ console.log(currentTabOptionChecked);
   if(currentTabOptionChecked == "is_prod"){
 
     $(".active").removeClass("active");
-    $("#formDisplay").load("flows/prod-custom-flow.html");
+    $("#FormUpdate").load("flows/prod-custom-flow.html");
     $(".prod-flow .initial-tab").addClass("active");
 
   }else{
