@@ -1,6 +1,6 @@
 (function($) {
 jQuery(document).ready(function(){
-  $("#formDisplay").load("flows/initial-flow.html");
+  $("#regForm").load("flows/initial-flow.html");
 
 
   $(document).on('click', '#prevBtn', function(){
@@ -16,25 +16,33 @@ jQuery(document).ready(function(){
 
 
 function nextslide() {
-  var nextTab = $(".active").next();
-  var currentTab = $(".active");
+  var currentTabOptionChecked = $('.active input[type=radio]:checked').val();
 
-  if(!nextTab.hasClass("last-tab")){
-    $('#nextBtn').show();
-    $('#prevBtn').show();
+  if(currentTabOptionChecked = "is_prod"){
+
+    $(".active").removeClass("active");
+    $("#formDisplay").load("flows/prod-custom-flow.html");
+    $(".prod-flow .initial-tab").addClass("active");
+
   }else{
-    $('#nextBtn').hide();
-  }
+    var nextTab = $(".active").next();
+
+    if(!nextTab.hasClass("last-tab")){
+      $('#nextBtn').show();
+      $('#prevBtn').show();
+    }else{
+      $('#nextBtn').hide();
+    }
+    
+    $(".active").removeClass("active");
+    nextTab.addClass("active");
   
-  $(".active").removeClass("active");
-  nextTab.addClass("active");
+  }
 
 }
 
 function prevslide() {
   var prevTab = $(".active").prev();
-  var currentTab = $(".active");
-
 
   if(!prevTab.hasClass("initial-tab")){
     $('#nextBtn').show();
