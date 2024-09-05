@@ -3,16 +3,15 @@ jQuery(document).ready(function(){
   $("#formDisplay").load("flows/initial-flow.html");
 
 
-  $('#prevBtn').click(function(){
-      prevslide();
-  }); 
+  $(document).on('click', '#prevBtn', function(){
+    prevslide();
+  });
 
-  $('#nextBtn').click(function(){
+  $(document).on('click', '#nextBtn', function(){
     if(validateOption()){
       nextslide();
     }
-    
-  }); 
+  });
 });
 
 
