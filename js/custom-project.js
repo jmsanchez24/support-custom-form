@@ -18,7 +18,7 @@ jQuery(document).ready(function(){
 function nextslide() {
   var currentTabOptionChecked = $('.active input[type=radio]:checked').val();
 
-  if(currentTabOptionChecked = "is_prod"){
+  if(currentTabOptionChecked == "is_prod"){
 
     $(".active").removeClass("active");
     $("#formDisplay").load("flows/prod-custom-flow.html");
