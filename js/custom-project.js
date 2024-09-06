@@ -47,6 +47,9 @@ function nextslide() {
 function prevslide() {
   var prevTab = $(".active").prev();
 
+  $('.active input[type=radio]:checked').prop('checked', false);
+
+
   if(!prevTab.hasClass("initial-tab")){
     $('#nextBtn').show();
     $('#prevBtn').show();
