@@ -16,8 +16,12 @@ jQuery(document).ready(function(){
 
 
 function nextslide() {
+
   var currentTabOptionChecked = $('.active input[type=radio]:checked').val();
-console.log(currentTabOptionChecked);
+  var nextTab = $(".active").next();
+
+  $('.active input[type=radio]:checked').prop('checked', false);
+
   if(currentTabOptionChecked == "is_prod"){
 
     $(".active").removeClass("active");
@@ -25,7 +29,6 @@ console.log(currentTabOptionChecked);
     $(".prod-flow .initial-tab").addClass("active");
 
   }else{
-    var nextTab = $(".active").next();
 
     if(!nextTab.hasClass("last-tab")){
       $('#nextBtn').show();
@@ -61,7 +64,7 @@ function validateOption(){
   if(!currentTabOptionChecked){
 
     if( !$(".active p").hasClass("invalid")){
-      $(".active p").append("<span class='invalid-message'>*Please make a selection</span>");
+      $(".active p").append("<span class='invalid-message'>Please make a selection</span>");
       $(".active p").addClass("invalid");
     }
 

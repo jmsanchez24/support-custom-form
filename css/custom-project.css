@@ -28,16 +28,22 @@
     text-align: center;
   }
 
+  .tab p {
+    font-size: 20px;
+  }
+
   .tab.active{
     display: block;
   }
 
   span.invalid-message {
+    display: block;
     color: #fff;
     background: red;
-    margin: 10px;
     padding: 5px;
     border-radius: 7px;
+    width: 20%;
+    margin: 7px auto;
   }
   
   button {
