@@ -35,7 +35,7 @@ function nextslide() {
 
     setTimeout(function(){
       $(".support-flow .initial-tab").addClass("active");
-  }, 1000);
+  }, 800);
 
   }else if(currentTabOptionChecked == "is_ms"){
 
