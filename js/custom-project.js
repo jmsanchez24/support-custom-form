@@ -29,13 +29,20 @@ function nextslide() {
     $(".prod-flow .initial-tab").addClass("active");
 
   }else if(currentTabOptionChecked == "is_support"){
+
     $(".active").removeClass("active");
     $("#FormUpdate").load("flows/support-custom-flow.html");
-    $(".support-flow .initial-tab").addClass("active");
+
+    setTimeout(function(){
+      $(".support-flow .initial-tab").addClass("active");
+  }, 1000);
+
   }else if(currentTabOptionChecked == "is_ms"){
+
     $(".active").removeClass("active");
     $("#FormUpdate").load("flows/ms-custom-flow.html");
     $(".ms-flow .initial-tab").addClass("active");
+
   }else{
 
     if(!nextTab.hasClass("last-tab")){
