@@ -31,11 +31,10 @@ function nextslide() {
   }else if(currentTabOptionChecked == "is_support"){
 
     $(".active").removeClass("active");
-    $("#FormUpdate").load("flows/support-custom-flow.html");
-
-    setTimeout(function(){
+    
+    $('#FormUpdate').load('flows/support-custom-flow.html', function() {
       $(".support-flow .initial-tab").addClass("active");
-  }, 400);
+    });
 
   }else if(currentTabOptionChecked == "is_ms"){
 
