@@ -42,8 +42,8 @@ function loadDeptFlow(currentTabOptionChecked){
     });
 
     }
-    
-    if($(".active").hasClass("last-tab")){
+
+    if(!$(".active").hasClass("last-tab")){
       $('#nextBtn').show();
       $('#prevBtn').show();
     }else{
