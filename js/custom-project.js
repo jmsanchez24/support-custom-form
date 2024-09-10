@@ -60,9 +60,16 @@ function loadDeptFlow(currentTabOptionChecked){
 function nextslide() {
 
   var currentTabOptionChecked = $('.active input[name=customProjMenu]:checked').val();
+
+  var initialTabOptionChecked = $('.active input[name=customProjMenu]:checked').val();
+
   var nextTab = $(".active").next();
 
-  if($(".active").hasClass("custom-menu") || $(".active").parent().hasClass("inital-flow")){
+  if($(".active").parent().hasClass("inital-flow")){
+    
+    loadDeptFlow(initialTabOptionChecked);
+
+  }else if($(".active").hasClass("custom-menu")){
 
     loadDeptFlow(currentTabOptionChecked);
     
