@@ -62,6 +62,7 @@
   
   #prevBtn {
     background-color: #4D4D4D;
+    display: none;
   }
   
  .support-process table, .support-process td, .support-process th {
@@ -123,12 +124,4 @@ input#numSites {
   text-align: center;
   width: 100px;
   border-radius: 5px;
-}
-
-#regForm .last-tab + .formPagination #nextBtn{
-  display: none;
-}
-
-#regForm .initial-tab + .formPagination #prevBtn{
-  display: none;
 }

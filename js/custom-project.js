@@ -55,6 +55,13 @@ function nextslide() {
     loadDeptFlow(currentTabOptionChecked);
     
   }else{
+
+    if(!nextTab.hasClass("last-tab")){
+      $('#nextBtn').show();
+      $('#prevBtn').show();
+    }else{
+      $('#nextBtn').hide();
+    }
     
     $(".active").removeClass("active");
     nextTab.addClass("active");
@@ -65,6 +72,13 @@ function nextslide() {
 
 function prevslide() {
   var prevTab = $(".active").prev();
+
+  if(!prevTab.hasClass("initial-tab")){
+    $('#nextBtn').show();
+    $('#prevBtn').show();
+  }else{
+    $('#prevBtn').hide();
+  }
   
   $(".active").removeClass("active");
   prevTab.addClass("active");
