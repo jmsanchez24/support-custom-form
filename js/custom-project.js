@@ -15,6 +15,35 @@ jQuery(document).ready(function(){
 });
 
 
+function loadDeptFlow(currentTabOptionChecked){
+  if(currentTabOptionChecked == "is_prod"){
+
+    $(".active").removeClass("active");
+
+    $('#FormUpdate').load('flows/prod-custom-flow.html', function() {
+      $(".prod-flow .tab").first().addClass("active");
+    });
+
+  }else if(currentTabOptionChecked == "is_support"){
+
+    $(".active").removeClass("active");
+
+    $('#FormUpdate').load('flows/support-custom-flow.html', function() {
+      $(".support-flow .tab").first().addClass("active");
+    });
+
+  }else if(currentTabOptionChecked == "is_ms"){
+
+    $(".active").removeClass("active");
+
+    $('#FormUpdate').load('flows/ms-custom-flow.html', function() {
+      $(".ms-flow .tab").first().addClass("active");
+
+    });
+
+    }
+}
+
 function nextslide() {
 
   var currentTabOptionChecked = $('.active input[name=customProjMenu]:checked').val();
@@ -115,34 +144,6 @@ function supportMenu(menuOption){
 
 }
 
-function loadDeptFlow(currentTabOptionChecked){
-  if(currentTabOptionChecked == "is_prod"){
-
-    $(".active").removeClass("active");
-
-    $('#FormUpdate').load('flows/prod-custom-flow.html', function() {
-      $(".prod-flow .tab").first().addClass("active");
-    });
-
-  }else if(currentTabOptionChecked == "is_support"){
-
-    $(".active").removeClass("active");
-
-    $('#FormUpdate').load('flows/support-custom-flow.html', function() {
-      $(".support-flow .tab").first().addClass("active");
-    });
-
-  }else if(currentTabOptionChecked == "is_ms"){
-
-    $(".active").removeClass("active");
-
-    $('#FormUpdate').load('flows/ms-custom-flow.html', function() {
-      $(".ms-flow .tab").first().addClass("active");
-
-    });
-
-    }
-}
 
 }
 
