@@ -56,17 +56,19 @@ function nextslide() {
     
   }else{
 
-    if(!nextTab.hasClass("last-tab")){
-      $('#nextBtn').show();
-      $('#prevBtn').show();
-    }else{
-      $('#nextBtn').hide();
-    }
-    
+ 
     $(".active").removeClass("active");
     nextTab.addClass("active");
   
   }
+  
+  if(!nextTab.hasClass("last-tab")){
+    $('#nextBtn').show();
+    $('#prevBtn').show();
+  }else{
+    $('#nextBtn').hide();
+  }
+  
 
 }
 
