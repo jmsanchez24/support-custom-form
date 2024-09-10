@@ -1,6 +1,5 @@
 (function($) {
 jQuery(document).ready(function(){
-  
   $("#FormUpdate").load("flows/initial-flow.html");
 
 
@@ -18,35 +17,37 @@ jQuery(document).ready(function(){
 
 function nextslide() {
 
-  var currentTabOptionChecked = $('.active input[type=radio]:checked').val();
+  var currentTabOptionChecked = $('.active input[name=customProjMenu]:checked').val();
   var nextTab = $(".active").next();
 
-  $('.active input[type=radio]:checked').prop('checked', false);
+  if($(".active").hasClass("custom-menu")){
+    console.log("menu option picked");
+    if(currentTabOptionChecked == "is_prod"){
 
-  if(currentTabOptionChecked == "is_prod"){
+      $(".active").removeClass("active");
 
-    $(".active").removeClass("active");
+      $('#FormUpdate').load('flows/prod-custom-flow.html', function() {
+        $(".prod-flow .initial-tab").addClass("active");
+      });
 
-    $('#FormUpdate').load('flows/prod-custom-flow.html', function() {
-      $(".prod-flow .initial-tab").addClass("active");
-    });
+    }else if(currentTabOptionChecked == "is_support"){
 
-  }else if(currentTabOptionChecked == "is_support"){
+      $(".active").removeClass("active");
 
-    $(".active").removeClass("active");
+      $('#FormUpdate').load('flows/support-custom-flow.html', function() {
+        $(".support-flow .initial-tab").addClass("active");
+      
+      });
 
-    $('#FormUpdate').load('flows/support-custom-flow.html', function() {
-      $(".support-flow .initial-tab").addClass("active");
-    });
+    }else if(currentTabOptionChecked == "is_ms"){
 
-  }else if(currentTabOptionChecked == "is_ms"){
+      $(".active").removeClass("active");
 
-    $(".active").removeClass("active");
+      $('#FormUpdate').load('flows/ms-custom-flow.html', function() {
+        $(".ms-flow .initial-tab").addClass("active");
+      });
 
-    $('#FormUpdate').load('flows/ms-custom-flow.html', function() {
-      $(".ms-flow .initial-tab").addClass("active");
-    });
-
+      }
   }else{
 
     if(!nextTab.hasClass("last-tab")){
@@ -66,9 +67,6 @@ function nextslide() {
 function prevslide() {
   var prevTab = $(".active").prev();
 
-  $('.active input[type=radio]:checked').prop('checked', false);
-
-
   if(!prevTab.hasClass("initial-tab")){
     $('#nextBtn').show();
     $('#prevBtn').show();
@@ -81,13 +79,30 @@ function prevslide() {
 }
 
 function validateOption(){
-  var currentTabOptionChecked = $('.active input[type=radio]:checked').val();
+  var currentTabOptionChecked = $(".active input[type=radio]:checked").val();
 
-  if(!currentTabOptionChecked){
+  if($(".active").hasClass("support-number-sites")){
+
+    var siteNumber= $(".active input[type=number]").val();
+    
+    if(siteNumber < 1){
+      if( !$(".active p").hasClass("invalid")){
+        $(".active p").append("<span class='invalid-message'>Please make a selection</span>");
+        $(".active p").addClass("invalid");
+        return false;
+      }
+    }else{
+      $(".active p").removeClass("invalid");
+      $(".invalid-message").remove();
+      return true;
+    }
+
+  }else if(!currentTabOptionChecked){
 
     if( !$(".active p").hasClass("invalid")){
       $(".active p").append("<span class='invalid-message'>Please make a selection</span>");
       $(".active p").addClass("invalid");
+      
     }
 
     return false;
@@ -100,4 +115,31 @@ function validateOption(){
 
 }
 
+function supportMenu(menuOption){
+
+  const menuOptionList = [
+    ["CustomTetmpBuild",750],
+    ["dlrLocPage", 750],
+    ["homepageSupUpdate", 1000],
+    ["headerRedev", 625],
+    ["footerRedev", 250],
+    ["sqzPage", 500],
+    ["customNav", 500],
+    ["customPageBlock", 500]
+    ];
+
+  for(var i = 0; i < menuOptionList.length; i++) {
+
+    if(menuOptionList[i].includes(menuOption)){
+
+      return menuOptionList[i][1];
+
+    }
+
+}
+
+}
+
 }(jQuery));
+
+
