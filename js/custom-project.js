@@ -62,7 +62,7 @@ function nextslide() {
   var currentTabOptionChecked = $('.active input[name=customProjMenu]:checked').val();
   var nextTab = $(".active").next();
 
-  if($(".active").hasClass("custom-menu")){
+  if($(".active").hasClass("custom-menu") || $(".active").parent().hasClass("inital-flow")){
 
     console.log("menu option picked");
     loadDeptFlow(currentTabOptionChecked);
