@@ -61,7 +61,7 @@ function nextslide() {
 
   var currentTabOptionChecked = $('.active input[name=customProjMenu]:checked').val();
 
-  var initialTabOptionChecked = $('.active input[name=customProjMenu]:checked').val();
+  var initialTabOptionChecked = $('.active input[name=is_prod]:checked').val();
 
   var nextTab = $(".active").next();
 
