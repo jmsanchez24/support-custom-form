@@ -27,7 +27,7 @@ function nextslide() {
       $(".active").removeClass("active");
 
       $('#FormUpdate').load('flows/prod-custom-flow.html', function() {
-        $(".prod-flow .initial-tab").addClass("active");
+        $(".prod-flow .tab").first().addClass("active");
       });
 
     }else if(currentTabOptionChecked == "is_support"){
@@ -35,8 +35,7 @@ function nextslide() {
       $(".active").removeClass("active");
 
       $('#FormUpdate').load('flows/support-custom-flow.html', function() {
-        $(".support-flow .initial-tab").addClass("active");
-      
+        $(".support-flow .tab").first().addClass("active");
       });
 
     }else if(currentTabOptionChecked == "is_ms"){
@@ -44,7 +43,8 @@ function nextslide() {
       $(".active").removeClass("active");
 
       $('#FormUpdate').load('flows/ms-custom-flow.html', function() {
-        $(".ms-flow .initial-tab").addClass("active");
+        $(".ms-flow .tab").first().addClass("active");
+
       });
 
       }
