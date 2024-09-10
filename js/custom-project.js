@@ -30,6 +30,12 @@ function loadDeptFlow(currentTabOptionChecked){
 
     $('#FormUpdate').load('flows/support-custom-flow.html', function() {
       $(".support-flow .tab").first().addClass("active");
+      if(!$(".active").hasClass("last-tab")){
+        $('#nextBtn').show();
+        $('#prevBtn').show();
+      }else{
+        $('#nextBtn').hide();
+      }
     });
 
   }else if(currentTabOptionChecked == "is_ms"){
@@ -43,12 +49,7 @@ function loadDeptFlow(currentTabOptionChecked){
 
     }
 
-    if(!$(".active").hasClass("last-tab")){
-      $('#nextBtn').show();
-      $('#prevBtn').show();
-    }else{
-      $('#nextBtn').hide();
-    }
+ 
     
 }
 
