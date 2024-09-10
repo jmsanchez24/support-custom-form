@@ -64,7 +64,6 @@ function nextslide() {
 
   if($(".active").hasClass("custom-menu") || $(".active").parent().hasClass("inital-flow")){
 
-    console.log("menu option picked");
     loadDeptFlow(currentTabOptionChecked);
     
   }else{
