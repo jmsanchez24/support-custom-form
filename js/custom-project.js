@@ -14,6 +14,14 @@ jQuery(document).ready(function(){
   });
 });
 
+function showNextPrevBtn(){
+  if(!$(".active").hasClass("last-tab")){
+    $('#nextBtn').show();
+    $('#prevBtn').show();
+  }else{
+    $('#nextBtn').hide();
+  }
+}
 
 function loadDeptFlow(currentTabOptionChecked){
   if(currentTabOptionChecked == "is_prod"){
@@ -22,6 +30,7 @@ function loadDeptFlow(currentTabOptionChecked){
 
     $('#FormUpdate').load('flows/prod-custom-flow.html', function() {
       $(".prod-flow .tab").first().addClass("active");
+      showNextPrevBtn();
     });
 
   }else if(currentTabOptionChecked == "is_support"){
@@ -30,12 +39,7 @@ function loadDeptFlow(currentTabOptionChecked){
 
     $('#FormUpdate').load('flows/support-custom-flow.html', function() {
       $(".support-flow .tab").first().addClass("active");
-      if(!$(".active").hasClass("last-tab")){
-        $('#nextBtn').show();
-        $('#prevBtn').show();
-      }else{
-        $('#nextBtn').hide();
-      }
+      showNextPrevBtn();
     });
 
   }else if(currentTabOptionChecked == "is_ms"){
@@ -44,7 +48,7 @@ function loadDeptFlow(currentTabOptionChecked){
 
     $('#FormUpdate').load('flows/ms-custom-flow.html', function() {
       $(".ms-flow .tab").first().addClass("active");
-
+      showNextPrevBtn();
     });
 
     }
