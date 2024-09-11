@@ -71,7 +71,7 @@
   
     }else if($(".active").hasClass("custom-menu")){
   
-      loadDeptFlow(currentTabOptionChecked);
+      loadDeptFlow(currentTabOptionChecked); 
       
     }else{
       console.log($(".active").parent().hasClass("support-flow"));
