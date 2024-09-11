@@ -74,6 +74,12 @@
       loadDeptFlow(currentTabOptionChecked);
       
     }else{
+      console.log($(".active").parent().hasClass("support-flow"));
+      console.log(currentTabOptionChecked);
+      if($(".active").parent().hasClass("support-flow")){
+        var getSiteNumber = $('#numSites').val();
+        console.log(getSiteNumber);
+      }
   
       if(!nextTab.hasClass("last-tab")){
         $('#nextBtn').show();
