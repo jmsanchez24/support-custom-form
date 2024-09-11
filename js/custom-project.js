@@ -40,6 +40,7 @@
       $('#FormUpdate').load('flows/support-custom-flow.html', function() {
         $(".support-flow .tab").first().addClass("active");
         showNextPrevBtn();
+        console.log(currentTabOptionChecked);
       });
   
     }else if(currentTabOptionChecked == "is_ms"){
@@ -74,6 +75,8 @@
       loadDeptFlow(currentTabOptionChecked); 
       
     }else{
+      console.log(currentTabOptionChecked);
+
       console.log($(".active").parent().hasClass("support-flow"));
       console.log(currentTabOptionChecked);
       if($(".active").parent().hasClass("support-flow")){
