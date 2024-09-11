@@ -43,7 +43,7 @@
         console.log(currentTabOptionChecked);
       });
   
-    }else if(currentTabOptionChecked == "is_ms"){
+    }else if(currentTabOptionChecked == "is_ms"){  
   
       $(".active").removeClass("active");
   
