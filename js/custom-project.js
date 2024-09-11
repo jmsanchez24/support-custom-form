@@ -13,6 +13,28 @@
       }
     });
   });
+
+  function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    let expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+
+  function getCookie(cname) {
+    let name = cname + "=";
+    let ca = document.cookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
   
   function showNextPrevBtn(){
     if(!$(".active").hasClass("last-tab")){
@@ -39,8 +61,9 @@
   
       $('#FormUpdate').load('flows/support-custom-flow.html', function() {
         $(".support-flow .tab").first().addClass("active");
+        setCookie("MenuOption", currentTabOptionChecked, 1);
+        getCookie("MenuOption");
         showNextPrevBtn();
-        console.log(currentTabOptionChecked);
       });
   
     }else if(currentTabOptionChecked == "is_ms"){  
@@ -73,6 +96,8 @@
     }else if($(".active").hasClass("custom-menu")){
   
       loadDeptFlow(currentTabOptionChecked); 
+      console.log(currentTabOptionChecked);
+
       
     }else{
       console.log(currentTabOptionChecked);
