@@ -62,7 +62,7 @@
       $('#FormUpdate').load('flows/support-custom-flow.html', function() {
         $(".support-flow .tab").first().addClass("active");
         setCookie("MenuOption", currentTabOptionChecked, 1);
-        getCookie("MenuOption");
+        console.log(getCookie("MenuOption"));
         showNextPrevBtn();
       });
   
