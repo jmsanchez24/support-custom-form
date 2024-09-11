@@ -83,17 +83,16 @@
   
   function nextslide() {
   
-    var currentTabOptionChecked = $('.active input[name=customProjMenu]:checked').val();
-  
-    var initialTabOptionChecked = $('.active input[name=is_prod]:checked').val();
-  
     var nextTab = $(".active").next();
   
     if($(".active").parent().hasClass("inital-flow") && initialTabOptionChecked == "is_prod"){
-      
+      var initialTabOptionChecked = $('.active input[name=is_prod]:checked').val();
+
       loadDeptFlow(initialTabOptionChecked);
   
     }else if($(".active").hasClass("custom-menu")){
+      var currentTabOptionChecked = $('.active input[name=customProjMenu]:checked').val();
+
   
       loadDeptFlow(currentTabOptionChecked); 
 
