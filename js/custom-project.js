@@ -96,14 +96,10 @@
     }else if($(".active").hasClass("custom-menu")){
   
       loadDeptFlow(currentTabOptionChecked); 
-      console.log(currentTabOptionChecked);
 
       
     }else{
-      console.log(currentTabOptionChecked);
 
-      console.log($(".active").parent().hasClass("support-flow"));
-      console.log(currentTabOptionChecked);
       if($(".active").parent().hasClass("support-flow")){
         var getSiteNumber = $('#numSites').val();
         console.log(getSiteNumber);
