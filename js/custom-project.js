@@ -104,7 +104,10 @@
       if($(".active").parent().hasClass("support-flow")){
         var getSiteNumber = $('#numSites').val();
         console.log(getSiteNumber);
+        console.log("-----------");
+
         console.log(currentTabOptionChecked);
+        console.log("-----------");
 
       }
   
