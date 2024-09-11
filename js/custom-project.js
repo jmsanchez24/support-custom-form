@@ -86,11 +86,13 @@
     var nextTab = $(".active").next();
   
     if($(".active").parent().hasClass("inital-flow") && initialTabOptionChecked == "is_prod"){
+
       var initialTabOptionChecked = $('.active input[name=is_prod]:checked').val();
 
       loadDeptFlow(initialTabOptionChecked);
   
     }else if($(".active").hasClass("custom-menu")){
+
       var currentTabOptionChecked = $('.active input[name=customProjMenu]:checked').val();
 
   
@@ -102,6 +104,8 @@
       if($(".active").parent().hasClass("support-flow")){
         var getSiteNumber = $('#numSites').val();
         console.log(getSiteNumber);
+        console.log(currentTabOptionChecked);
+
       }
   
       if(!nextTab.hasClass("last-tab")){
