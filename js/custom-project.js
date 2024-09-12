@@ -1,5 +1,6 @@
 (function($) {
   var MenuOptionVal;
+  var SupportTotalPrice;
 
   function showNextPrevBtn(){
     if(!$(".active").hasClass("last-tab")){
@@ -66,7 +67,7 @@
     }else{
 
       if($(".active").parent().hasClass("support-flow")){
-        var getSiteNumber = $('#numSites').val();
+        var getSiteNumber = Number($('#numSites').val());
         
         console.log(getSiteNumber);
         console.log("---------------");
@@ -74,6 +75,8 @@
         console.log(MenuOptionVal);
         console.log("---------------");
         console.log( MenuPriceLookUp(MenuOptionVal));
+
+
 
        
       }
