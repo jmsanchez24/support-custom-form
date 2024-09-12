@@ -69,29 +69,31 @@
       if($(".active").parent().hasClass("support-flow")){
         var getSiteNumber = Number($('#numSites').val());
         var hasGP = $('input[name=gp]:checked').val();
-
-        console.log(getSiteNumber);
+        console.log("-----Tab Loaded----------");
+        console.log("Number of sites: " + getSiteNumber);
         console.log("---------------");
 
-        console.log(MenuOptionVal);
+        console.log("Menu Option: " + MenuOptionVal);
         console.log("---------------");
-        console.log( MenuPriceLookUp(MenuOptionVal));
+        console.log( "Price of Menu Option" + MenuPriceLookUp(MenuOptionVal));
         console.log("---------------");
         console.log(hasGP);
 
         var SupportTotalPrice
 
         if(hasGP){
+          console.log("has group plugin")
 
           SupportTotalPrice = MenuPriceLookUp(MenuOptionVal);
 
         }else{
+          console.log("no group plugin")
           var siteNumPrice = getSiteNumber * 125;
           SupportTotalPrice = MenuPriceLookUp(MenuOptionVal) + siteNumPrice ;
         }
 
         console.log("---------------");
-        console.log(SupportTotalPrice);
+        console.log("Support price: " + SupportTotalPrice);
       }
   
       if(!nextTab.hasClass("last-tab")){
