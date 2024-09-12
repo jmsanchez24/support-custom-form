@@ -1,19 +1,6 @@
 (function($) {
-  jQuery(document).ready(function(){
-    $("#FormUpdate").load("flows/initial-flow.html");
-  
-  
-    $(document).on('click', '#prevBtn', function(){
-      prevslide();
-    });
-  
-    $(document).on('click', '#nextBtn', function(){
-      if(validateOption()){
-        nextslide();
-      }
-    });
-  });
-  
+  var MenuOptionVal;
+
   function showNextPrevBtn(){
     if(!$(".active").hasClass("last-tab")){
       $('#nextBtn').show();
@@ -72,6 +59,7 @@
 
       var currentTabOptionChecked = $('.active input[name=customProjMenu]:checked').val();
       var currentTabOptionCheckedVal = $('.active input[name=customProjMenu]:checked').attr("id");
+      MenuOptionVal = currentTabOptionCheckedVal;
       console.log(currentTabOptionChecked);
       console.log("---------------");
 
@@ -90,7 +78,7 @@
         console.log(currentTabOptionChecked);
         console.log("---------------");
 
-        console.log(currentTabOptionCheckedVal);
+        console.log(MenuOptionVal);
       }
   
       if(!nextTab.hasClass("last-tab")){
@@ -179,9 +167,25 @@
   
       }
   
-  }
+    }
   
   
   }
+
+  jQuery(document).ready(function(){
+    $("#FormUpdate").load("flows/initial-flow.html");
+  
+  
+    $(document).on('click', '#prevBtn', function(){
+      prevslide();
+    });
+  
+    $(document).on('click', '#nextBtn', function(){
+      if(validateOption()){
+        nextslide();
+      }
+    });
+  });
+  
   
   }(jQuery));
