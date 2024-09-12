@@ -96,6 +96,8 @@
         console.log("---------------");
         console.log("Support price: " + SupportTotalPrice);
 
+        $(".supportPrice").text("");
+
         $(".supportPrice").append(SupportTotalPrice);
       }
   
