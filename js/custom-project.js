@@ -132,7 +132,7 @@
     }
     
 
-    if($(".active").hasClass(".initial-flow-start")){
+    if($(".active").hasClass("initial-flow-start")){
 
       $(".active").removeClass("active");
   
