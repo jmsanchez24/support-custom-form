@@ -131,8 +131,22 @@
       $('#prevBtn').hide();
     }
     
-    $(".active").removeClass("active");
-    prevTab.addClass("active");
+
+    if($(".active").hasClass(".initial-flow-start")){
+
+      $(".active").removeClass("active");
+  
+      $('#FormUpdate').load('flows/initial-flow.html', function() {
+        $(".custom-menu").addClass("active");
+        showNextPrevBtn();
+      });
+  
+    }else{
+      $(".active").removeClass("active");
+      prevTab.addClass("active");
+    }
+
+
   }
   
   function validateOption(){
