@@ -98,7 +98,7 @@
 
         $(".supportPrice").text("");
 
-        $(".supportPrice").append(SupportTotalPrice);
+        $(".supportPrice").append(new Intl.NumberFormat('en-US').format(SupportTotalPrice));
       }
   
       if(!nextTab.hasClass("last-tab")){
