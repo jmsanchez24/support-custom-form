@@ -137,6 +137,8 @@
       $(".active").removeClass("active");
   
       $('#FormUpdate').load('flows/initial-flow.html', function() {
+        $(".active").removeClass("active");
+
         $(".custom-menu").addClass("active");
         showNextPrevBtn();
       });
