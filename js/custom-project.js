@@ -69,19 +69,20 @@
       if($(".active").parent().hasClass("support-flow")){
         var getSiteNumber = Number($('#numSites').val());
         var hasGP = $('input[name=gp]:checked').val();
+
         console.log("-----Tab Loaded----------");
         console.log("Number of sites: " + getSiteNumber);
         console.log("---------------");
 
         console.log("Menu Option: " + MenuOptionVal);
         console.log("---------------");
-        console.log( "Price of Menu Option" + MenuPriceLookUp(MenuOptionVal));
+        console.log( "Price of Menu Option: " + MenuPriceLookUp(MenuOptionVal));
         console.log("---------------");
         console.log(hasGP);
 
         var SupportTotalPrice
 
-        if(hasGP){
+        if(hasGP === true){
           console.log("has group plugin")
 
           SupportTotalPrice = MenuPriceLookUp(MenuOptionVal);
