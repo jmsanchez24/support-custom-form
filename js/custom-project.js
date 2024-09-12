@@ -68,15 +68,16 @@
 
       if($(".active").parent().hasClass("support-flow")){
         var getSiteNumber = Number($('#numSites').val());
-        
+        var hasGP = $('input[name=gp]:checked').val();
+
         console.log(getSiteNumber);
         console.log("---------------");
 
         console.log(MenuOptionVal);
         console.log("---------------");
         console.log( MenuPriceLookUp(MenuOptionVal));
-
-
+        console.log("---------------");
+        console.log(hasGP);
 
        
       }
