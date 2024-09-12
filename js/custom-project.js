@@ -78,7 +78,7 @@
         console.log("---------------");
         console.log( "Price of Menu Option: " + MenuPriceLookUp(MenuOptionVal));
         console.log("---------------");
-        console.log(hasGP);
+        console.log("Has GP: " + hasGP);
 
         var SupportTotalPrice
 
