@@ -1,6 +1,6 @@
 (function($) {
   var MenuOptionVal;
-  var SupportTotalPrice;
+ // var SupportTotalPrice;
 
   function showNextPrevBtn(){
     if(!$(".active").hasClass("last-tab")){
@@ -79,7 +79,19 @@
         console.log("---------------");
         console.log(hasGP);
 
-       
+        var SupportTotalPrice
+
+        if(hasGP){
+
+          SupportTotalPrice = MenuPriceLookUp(MenuOptionVal);
+
+        }else{
+          var siteNumPrice = getSiteNumber * 125;
+          SupportTotalPrice = MenuPriceLookUp(MenuOptionVal) + siteNumPrice ;
+        }
+
+        console.log("---------------");
+        console.log(SupportTotalPrice);
       }
   
       if(!nextTab.hasClass("last-tab")){

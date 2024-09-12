@@ -65,16 +65,16 @@
     display: none;
   }
   
- .support-process table, .support-process td, .support-process th {
+ .support-flows table, .support-flow td, .support-flow th {
     border: 1px solid;
   }
   
-  .support-process table {
+  .support-flow table {
     width: 100%;
     border-collapse: collapse;
     background-color: #8136B2;
   }
-  .support-process table td{
+  .support-flow table td{
     padding: 10px;
   }
   input[type="radio"] {
