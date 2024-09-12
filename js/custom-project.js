@@ -49,10 +49,11 @@
   function nextslide() {
   
     var nextTab = $(".active").next();
+
+    var initialTabOptionChecked = $('.active input[name=is_prod]:checked').val();
+
   
     if($(".active").parent().hasClass("inital-flow") && initialTabOptionChecked == "is_prod"){
-
-      var initialTabOptionChecked = $('.active input[name=is_prod]:checked').val();
 
       loadDeptFlow(initialTabOptionChecked);
   
