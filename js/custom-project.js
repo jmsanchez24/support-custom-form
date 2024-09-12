@@ -82,7 +82,7 @@
 
         var SupportTotalPrice
 
-        if(hasGP == "yes_gp"){
+        if(hasGP == "yes_gp" || getSiteNumber == 1){
           console.log("has group plugin")
 
           SupportTotalPrice = MenuPriceLookUp(MenuOptionVal);
@@ -98,7 +98,7 @@
 
         $(".supportPrice").text("");
 
-        $(".supportPrice").append(new Intl.NumberFormat('en-US').format(SupportTotalPrice));
+        $(".supportPrice").append("$" + new Intl.NumberFormat('en-US').format(SupportTotalPrice));
       }
   
       if(!nextTab.hasClass("last-tab")){
