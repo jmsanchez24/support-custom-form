@@ -80,17 +80,23 @@
         console.log("---------------");
         console.log("Has GP: " + hasGP);
 
-        var SupportTotalPrice
+        var SupportTotalPrice = MenuPriceLookUp(MenuOptionVal);
 
-        if(hasGP == "yes_gp" || getSiteNumber == 1){
-          console.log("has group plugin")
+        var needsMockUp = $('input[name=supportMockup]:checked').val();
+        var mockUpPrice = 500;
 
-          SupportTotalPrice = MenuPriceLookUp(MenuOptionVal);
-
-        }else{
+        if(hasGP == "no_gp" && getSiteNumber != 1){
           console.log("no group plugin")
+
           var siteNumPrice = getSiteNumber * 125;
           SupportTotalPrice = MenuPriceLookUp(MenuOptionVal) + siteNumPrice ;
+
+        }
+
+        if(needsMockUp == "yes_mu"){
+          SupportTotalPrice += mockUpPrice;
+          console.log("---------------");
+          console.log("Mockup Price:" + mockUpPrice);
         }
 
         console.log("---------------");

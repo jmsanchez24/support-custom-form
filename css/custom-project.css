@@ -125,3 +125,14 @@ input#numSites {
   width: 100px;
   border-radius: 5px;
 }
+
+span.CustProjQuestion {
+  font-size: 14px;
+  background: yellow;
+  color: #000;
+  padding: 9px;
+  display: block;
+  width: 78%;
+  text-align: center;
+  margin: 11px auto 0;
+}
