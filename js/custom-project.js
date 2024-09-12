@@ -82,7 +82,7 @@
 
         var SupportTotalPrice
 
-        if(hasGP === true){
+        if(hasGP == "yes_gp"){
           console.log("has group plugin")
 
           SupportTotalPrice = MenuPriceLookUp(MenuOptionVal);
