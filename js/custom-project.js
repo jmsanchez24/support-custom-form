@@ -58,27 +58,21 @@
     }else if($(".active").hasClass("custom-menu")){
 
       var currentTabOptionChecked = $('.active input[name=customProjMenu]:checked').val();
-      var currentTabOptionCheckedVal = $('.active input[name=customProjMenu]:checked').attr("id");
-      MenuOptionVal = currentTabOptionCheckedVal;
-      console.log(currentTabOptionChecked);
-      console.log("---------------");
-
-      console.log(currentTabOptionCheckedVal);
-  
-      loadDeptFlow(currentTabOptionChecked); 
-
+      MenuOptionVal = $('.active input[name=customProjMenu]:checked').attr("id");
       
     }else{
 
       if($(".active").parent().hasClass("support-flow")){
         var getSiteNumber = $('#numSites').val();
+        
         console.log(getSiteNumber);
         console.log("---------------");
 
-        console.log(currentTabOptionChecked);
-        console.log("---------------");
-
         console.log(MenuOptionVal);
+        console.log("---------------");
+        console.log( MenuPriceLookUp(MenuOptionVal));
+
+       
       }
   
       if(!nextTab.hasClass("last-tab")){
@@ -146,7 +140,7 @@
   
   }
   
-  function supportMenu(menuOption){
+  function MenuPriceLookUp(menuOption){
   
     const menuOptionList = [
       ["CustomTetmpBuild",750],
