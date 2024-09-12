@@ -94,6 +94,7 @@
     }else if($(".active").hasClass("custom-menu")){
 
       var currentTabOptionChecked = $('.active input[name=customProjMenu]:checked').val();
+      var currentTabOptionCheckedVal = $('.active input[name=customProjMenu]:checked').attr("id");
 
   
       loadDeptFlow(currentTabOptionChecked); 
@@ -104,11 +105,12 @@
       if($(".active").parent().hasClass("support-flow")){
         var getSiteNumber = $('#numSites').val();
         console.log(getSiteNumber);
-        console.log("-----------");
+        console.log("---------------");
 
         console.log(currentTabOptionChecked);
-        console.log("-----------");
+        console.log("---------------");
 
+        console.log(currentTabOptionCheckedVal);
       }
   
       if(!nextTab.hasClass("last-tab")){
