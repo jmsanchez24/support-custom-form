@@ -95,6 +95,8 @@
 
         console.log("---------------");
         console.log("Support price: " + SupportTotalPrice);
+
+        $(".supportPrice").append(SupportTotalPrice);
       }
   
       if(!nextTab.hasClass("last-tab")){
