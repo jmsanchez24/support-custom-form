@@ -103,6 +103,8 @@
         console.log("---------------");
         console.log("Support price: " + SupportTotalPrice);
 
+
+
         $(".supportPrice").text("");
 
         $(".supportPrice").append("$" + new Intl.NumberFormat('en-US').format(SupportTotalPrice));
@@ -140,7 +142,13 @@
       $('#FormUpdate').load('flows/initial-flow.html', function() {
         $(".active").removeClass("active");
 
-        $(".custom-menu").addClass("active");
+        if($(".active").parent().hasClass("prod-flow") && isEmpty(MenuOptionVal)){
+          $(".initial-tab").addClass("active");
+
+        }else{
+          $(".custom-menu").addClass("active");
+        }
+
         showNextPrevBtn();
       });
   
@@ -160,28 +168,28 @@
       var siteNumber= $(".active input[type=number]").val();
       
       if(siteNumber < 1){
-        if( !$(".active p").hasClass("invalid")){
-          $(".active p").append("<span class='invalid-message'>Please make a selection</span>");
-          $(".active p").addClass("invalid");
+        if( !$(".active .mainQuestion").hasClass("invalid")){
+          $(".active .mainQuestion").append("<span class='invalid-message'>Please make a selection</span>");
+          $(".active .mainQuestion").addClass("invalid");
           return false;
         }
       }else{
-        $(".active p").removeClass("invalid");
+        $(".active .mainQuestion").removeClass("invalid");
         $(".invalid-message").remove();
         return true;
       }
   
     }else if(!currentTabOptionChecked){
   
-      if( !$(".active p").hasClass("invalid")){
-        $(".active p").append("<span class='invalid-message'>Please make a selection</span>");
-        $(".active p").addClass("invalid");
+      if( !$(".active .mainQuestion").hasClass("invalid")){
+        $(".active .mainQuestion").append("<span class='invalid-message'>Please make a selection</span>");
+        $(".active .mainQuestion").addClass("invalid");
         
       }
   
       return false;
     }else{
-      $(".active p").removeClass("invalid");
+      $(".active .mainQuestion").removeClass("invalid");
       $(".invalid-message").remove();
       return true;
     }

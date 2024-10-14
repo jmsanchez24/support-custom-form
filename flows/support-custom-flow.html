@@ -1,11 +1,11 @@
 <div class="support-flow">
     <div class="tab initial-flow-start support-number-sites">
-        <p>How many sites is this update for?</p>
+        <p class="mainQuestion">How many sites is this update for?</p>
         <input type="number" id="numSites" name="numSites" min="1">
     </div>
 
     <div class="tab dg-question">
-        <p>Does this dealer have an existing group plugin?</p>
+        <p class="mainQuestion">Does this dealer have an existing group plugin?</p>
         <div class="customOptions question">
             <div class="option-colum">
                 <input type="radio" id="yes_gp" name="gp" value=yes_gp>
@@ -17,7 +17,7 @@
       </div>
 
       <div class="tab">
-        <p>Is a mockup needed?</p>
+        <p class="mainQuestion">Is a mockup needed?</p>
         <div class="customOptions question">
             <div class="option-colum">
                 <input type="radio" id="yes_mu" name="supportMockup" value=yes_mu>
@@ -28,26 +28,37 @@
         </div>
       </div>
 
+      <div class="tab">
+        <p class="mainQuestion">Is this compliant?</p> 
+        <p class="secondQuestion">Please check with the OEM program manager to make sure the change you’re requesting is OEM compliant before proceeding</p>
+        <div class="compliantOptions question">
+            <div class="option-colum">
+                <input type="radio" id="yes_compliant" name="compQ" value=yes_compliant>
+                 <label for="yes_compliant">Yes</label>
+                <input type="radio" id="no_compliant" name="compQ" value=no_compliant>
+                 <label for="no_compliant">No</label>
+            </div>
+        </div>
+      </div>
+
     <div class="tab support-price-display last-tab">
-        <p>This custom work is managed by our support development team, an estimate price for this project is: <span class="supportPrice"></span></p>
+        <p class="mainQuestion">This custom work is managed by our support development team, an <b>ESTIMATE</b> price for this project is: <span class="supportPrice"></span></p>
+        <p>Here is the cost breakdown: </p>
         <table>
             <tr>
-                <th>Custom Project Process</th>
+                <td class="ProjName"></td>
+                <td class="ProjCost"></td>
             </tr>
             <tr>
-                <td>PFM checks Dealer package level</td>
-                <td>Some changes are not allowed on some OEMs and/or package levels. Please check with the OEM program manager to make sure the change you’re requesting is OEM compliant, and check this page to make sure the change is allowed on the dealer’s package level before proceeding.</td>
+                <td class="NumSites"></td>
+                <td class="NumSitesCost"> (Number of sites x $125)</td>
             </tr>
             <tr>
-                <td>PFM fills out Project Outline Document 
-                <br/>
-                (Following directions to the right, making a copy of the document and filling it out with the dealer. Please remember to update the share settings so that support teams can view the doc)</td>
-                <td>Dealer asks can have a wide range in scope that isn’t always obvious from a surface level. This worksheet is meant to get feedback from teams that will be impacted so a final business decision can be made. The intention is for the Performance Manager to own the completion of this document by coordinating with T1, T2, Content Support, and Design team members.
-                Click Here for Project Outline Doc
-                <br />
-                NOTE: Make a copy of the Project Outline Doc and fill out for your client while on the phone. Do not email this project outline document to your dealer!</td>
+                <td class="MockupName"></td>
+                <td class="MockupCost"></td>
             </tr>
         </table>
+        <p>Click next to create the SOW</p>
     </div>
     <div class="formPagination">
         <div style="float:right;">

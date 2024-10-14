@@ -137,3 +137,7 @@ span.CustProjQuestion {
   margin: 11px auto 0;
   border-radius: 15px;
 }
+
+span.supportPrice {
+  text-decoration: underline;
+}
