@@ -87,6 +87,11 @@
         var needsMockUp = $('input[name=supportMockup]:checked').val();
         var mockUpPrice = 500;
 
+        $(".ProjName").text(MenuOptionVal);
+        $(".ProjCost").text(SupportTotalPrice);
+
+
+
         if(hasGP == "no_gp" && getSiteNumber != 1){
           console.log("no group plugin")
 
@@ -94,7 +99,7 @@
           SupportTotalPrice = MenuPriceLookUp(MenuOptionVal) + siteNumPrice ;
 
           $(".NumSites").text(getSiteNumber);
-          $(".NumSitesCost").text(costPerSite + " (Number of sites x $125)");
+          $(".NumSitesCost").text("$" + costPerSite + " (Number of sites x $125)");
 
         }else{
           $(".NumSites").text(getSiteNumber);
@@ -108,14 +113,20 @@
           SupportTotalPrice += mockUpPrice;
           console.log("---------------");
           console.log("Mockup Price:" + mockUpPrice);
+          $(".MockupName").text("Yes");
+          $(".MockupCost").text(mockUpPrice);
+
+        }else{
+          $(".MockupName").text("No");
+          $(".MockupCost").text("0");
+
         }
 
         console.log("---------------");
         console.log("Support price: " + SupportTotalPrice);
 
         $(".supportPrice").text("$" + new Intl.NumberFormat('en-US').format(SupportTotalPrice));
-
-
+        $(".finalCost").text("$" + new Intl.NumberFormat('en-US').format(SupportTotalPrice));
       }
   
       if(!nextTab.hasClass("last-tab")){
