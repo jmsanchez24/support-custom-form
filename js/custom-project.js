@@ -1,5 +1,6 @@
 (function($) {
   var MenuOptionVal;
+  var MenuOptionText;
  // var SupportTotalPrice;
 
   function showNextPrevBtn(){
@@ -61,7 +62,7 @@
 
       var currentTabOptionChecked = $('.active input[name=customProjMenu]:checked').val();
       MenuOptionVal = $('.active input[name=customProjMenu]:checked').attr("id");
-
+      MenuOptionText = $('.active input[name=customProjMenu]:checked').text();
       loadDeptFlow(currentTabOptionChecked);
 
       
@@ -77,6 +78,8 @@
         console.log("---------------");
 
         console.log("Menu Option: " + MenuOptionVal);
+        console.log("Menu Option Text: " + MenuOptionText);
+
         console.log("---------------");
         console.log( "Price of Menu Option: " + MenuPriceLookUp(MenuOptionVal));
         console.log("---------------");
@@ -87,7 +90,7 @@
         var needsMockUp = $('input[name=supportMockup]:checked').val();
         var mockUpPrice = 500;
 
-        $(".ProjName").text(MenuOptionVal);
+        $(".ProjName").text(MenuOptionText);
         $(".ProjCost").text(SupportTotalPrice);
 
 
