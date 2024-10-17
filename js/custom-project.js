@@ -93,13 +93,16 @@
           var siteNumPrice = getSiteNumber * 125;
           SupportTotalPrice = MenuPriceLookUp(MenuOptionVal) + siteNumPrice ;
 
-          $(".NumSites").append(getSiteNumber);
-          $(".NumSitesCost").append(costPerSite);
+          $(".NumSites").text(getSiteNumber);
+          $(".NumSitesCost").text(costPerSite + " (Number of sites x $125)");
 
         }else{
-          $(".NumSites").append(getSiteNumber);
-          $(".NumSitesCost").append("0");
+          $(".NumSites").text(getSiteNumber);
+          $(".NumSitesCost").text("0");
         }
+
+        console.log("---------------");
+        console.log("Number of Sites:" + mockUpPrice);
 
         if(needsMockUp == "yes_mu"){
           SupportTotalPrice += mockUpPrice;
