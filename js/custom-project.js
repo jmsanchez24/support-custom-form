@@ -91,7 +91,7 @@
         var mockUpPrice = 500;
 
         $(".ProjName").text(MenuOptionText);
-        $(".ProjCost").text(SupportTotalPrice);
+        $(".ProjCost").text("$" + SupportTotalPrice);
 
 
 
@@ -117,7 +117,7 @@
           console.log("---------------");
           console.log("Mockup Price:" + mockUpPrice);
           $(".MockupName").text("Yes");
-          $(".MockupCost").text(mockUpPrice);
+          $(".MockupCost").text("$" + mockUpPrice);
 
         }else{
           $(".MockupName").text("No");
