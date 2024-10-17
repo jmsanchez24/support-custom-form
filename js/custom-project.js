@@ -70,7 +70,8 @@
       if($(".active").parent().hasClass("support-flow")){
         var getSiteNumber = Number($('#numSites').val());
         var hasGP = $('input[name=gp]:checked').val();
-
+        var costPerSite = getSiteNumber * 125;
+        
         console.log("-----Tab Loaded----------");
         console.log("Number of sites: " + getSiteNumber);
         console.log("---------------");
@@ -92,6 +93,12 @@
           var siteNumPrice = getSiteNumber * 125;
           SupportTotalPrice = MenuPriceLookUp(MenuOptionVal) + siteNumPrice ;
 
+          $(".NumSites").append(getSiteNumber);
+          $(".NumSitesCost").append(costPerSite);
+
+        }else{
+          $(".NumSites").append(getSiteNumber);
+          $(".NumSitesCost").append("0");
         }
 
         if(needsMockUp == "yes_mu"){
@@ -103,11 +110,9 @@
         console.log("---------------");
         console.log("Support price: " + SupportTotalPrice);
 
+        $(".supportPrice").text("$" + new Intl.NumberFormat('en-US').format(SupportTotalPrice));
 
 
-        $(".supportPrice").text("");
-
-        $(".supportPrice").append("$" + new Intl.NumberFormat('en-US').format(SupportTotalPrice));
       }
   
       if(!nextTab.hasClass("last-tab")){
