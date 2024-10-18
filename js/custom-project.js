@@ -254,7 +254,7 @@
     });
   
     $(document).on('click', '#nextBtn', function(){
-      if(validateOption()){
+      if(validateOption() && $(".active").hasClass("validate-form")){
         nextslide();
       }
     });
