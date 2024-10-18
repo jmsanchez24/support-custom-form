@@ -102,7 +102,7 @@
           SupportTotalPrice = MenuPriceLookUp(MenuOptionVal) + siteNumPrice ;
 
           $(".NumSites").text(getSiteNumber);
-          $(".NumSitesCost").text("$" + costPerSite + " (Number of sites x $125)");
+          $(".NumSitesCost").text("$" + costPerSite + " ($125/site)");
 
         }else{
           $(".NumSites").text(getSiteNumber);
