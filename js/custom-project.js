@@ -254,7 +254,11 @@
     });
   
     $(document).on('click', '#nextBtn', function(){
-      if(validateOption() && $(".active").hasClass("validate-form")){
+      if($(".active").hasClass("validate-form")){
+        if(validateOption()){
+          nextslide();
+        }
+      }else{
         nextslide();
       }
     });
