@@ -67,6 +67,17 @@
   
   .support-flow table {
     width: 50%;
+    background: #fff;
+    margin: 0 auto;
+    border-collapse: collapse;
+  }
+  .support-flow table tr {
+    color: #000;
+    text-align: left;
+    border-bottom: 1px solid #dddddd;
+  }
+  .support-flow table tr:nth-of-type(even) {
+    background-color: #f3f3f3;
   }
 
   .support-flow .processTable{
