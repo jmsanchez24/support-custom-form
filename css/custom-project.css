@@ -65,15 +65,8 @@
     display: none;
   }
   
- .support-flows table, .support-flow td, .support-flow th {
-    border: 1px solid;
-  }
-  
   .support-flow table {
     width: 50%;
-    border-collapse: collapse;
-    background-color: #8136B2;
-    margin: 0 auto;
   }
 
   .support-flow .processTable{
