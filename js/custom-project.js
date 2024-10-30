@@ -62,7 +62,7 @@
 
       var currentTabOptionChecked = $('.active input[name=customProjMenu]:checked').val();
       MenuOptionVal = $('.active input[name=customProjMenu]:checked').attr("id");
-      MenuOptionText = $('.active input[name=customProjMenu]:checked + label').text();
+      MenuOptionText = $('.active input[name=customProjMenu]:checked + label .custom-project-label').text();
       loadDeptFlow(currentTabOptionChecked);
 
       
