@@ -71,7 +71,6 @@
       if($(".active").parent().hasClass("support-flow")){
         var getSiteNumber = Number($('#numSites').val());
         var hasGP = $('input[name=gp]:checked').val();
-        var costPerSite = getSiteNumber * 125;
         
         console.log("-----Tab Loaded----------");
         console.log("Number of sites: " + getSiteNumber);
@@ -96,13 +95,17 @@
 
 
         if(hasGP == "no_gp" && getSiteNumber != 1){
+          
+          var costPerSite = getSiteNumber * 125;
+          costPerSite = costPerSite - 125; 
+
           console.log("no group plugin")
 
           var siteNumPrice = getSiteNumber * 125;
           SupportTotalPrice = MenuPriceLookUp(MenuOptionVal) + siteNumPrice ;
 
           $(".NumSites").text(getSiteNumber);
-          $(".NumSitesCost").text("$" + costPerSite + " ($125/site)");
+          $(".NumSitesCost").text("$" + costPerSite + " ($125/per additional site)");
 
         }else{
           $(".NumSites").text(getSiteNumber);
