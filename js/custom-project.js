@@ -71,18 +71,7 @@
       if($(".active").parent().hasClass("support-flow")){
         var getSiteNumber = Number($('#numSites').val());
         var hasGP = $('input[name=gp]:checked').val();
-        
-        console.log("-----Tab Loaded----------");
-        console.log("Number of sites: " + getSiteNumber);
-        console.log("---------------");
-
-        console.log("Menu Option: " + MenuOptionVal);
-        console.log("Menu Option Text: " + MenuOptionText);
-
-        console.log("---------------");
-        console.log( "Price of Menu Option: " + MenuPriceLookUp(MenuOptionVal));
-        console.log("---------------");
-        console.log("Has GP: " + hasGP);
+        var isCompliant = $('input[name=compQ]:checked').val();
 
         var SupportTotalPrice = MenuPriceLookUp(MenuOptionVal);
 
@@ -95,11 +84,9 @@
 
 
         if(hasGP == "no_gp" && getSiteNumber != 1){
-          
+
           var costPerSite = getSiteNumber * 125;
           costPerSite = costPerSite - 125; 
-
-          console.log("no group plugin")
 
           var siteNumPrice = getSiteNumber * 125;
           SupportTotalPrice = MenuPriceLookUp(MenuOptionVal) + siteNumPrice ;
@@ -112,13 +99,9 @@
           $(".NumSitesCost").text("0");
         }
 
-        console.log("---------------");
-        console.log("Number of Sites:" + mockUpPrice);
-
         if(needsMockUp == "yes_mu"){
           SupportTotalPrice += mockUpPrice;
-          console.log("---------------");
-          console.log("Mockup Price:" + mockUpPrice);
+
           $(".MockupName").text("Yes");
           $(".MockupCost").text("$" + mockUpPrice);
 
@@ -128,8 +111,11 @@
 
         }
 
-        console.log("---------------");
-        console.log("Support price: " + SupportTotalPrice);
+        if(isCompliant == "no_compliant"){
+          $(".oem-message").show();
+        }else{
+          $(".oem-message").hide();
+        }
 
         $(".supportPrice").text("$" + new Intl.NumberFormat('en-US').format(SupportTotalPrice));
         $(".finalCost").text("$" + new Intl.NumberFormat('en-US').format(SupportTotalPrice));

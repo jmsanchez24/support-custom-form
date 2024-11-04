@@ -197,3 +197,6 @@ a{
   display: inline-block;
   margin: 8px auto;
 }
+.oem-message{
+  display: none;
+}
