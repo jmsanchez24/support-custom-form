@@ -153,11 +153,7 @@
       $('#FormUpdate').load('flows/initial-flow.html', function() {
         $(".active").removeClass("active");
 
-        console.log($(".active").parent().hasClass("prod-flow") && (isEmpty(MenuOptionVal) || MenuOptionVal === undefined));
-        console.log($(".active").parent().hasClass("prod-flow"));
-        console.log(isEmpty(MenuOptionVal) || MenuOptionVal === undefined)
-
-        if($(".active").parent().hasClass("prod-flow") && (isEmpty(MenuOptionVal) || MenuOptionVal === undefined)){
+        if($(".active").parent().hasClass("prod-flow") &&  MenuOptionVal === undefined){
           $(".initial-tab").addClass("active");
 
         }else{
