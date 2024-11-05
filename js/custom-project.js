@@ -154,7 +154,8 @@
         $(".active").removeClass("active");
 
         console.log($(".active").parent().hasClass("prod-flow") && (isEmpty(MenuOptionVal) || MenuOptionVal === undefined));
-
+        console.log($(".active").parent().hasClass("prod-flow"));
+        console.log(sEmpty(MenuOptionVal) || MenuOptionVal === undefined)
 
         if($(".active").parent().hasClass("prod-flow") && (isEmpty(MenuOptionVal) || MenuOptionVal === undefined)){
           $(".initial-tab").addClass("active");
