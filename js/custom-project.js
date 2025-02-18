@@ -148,22 +148,14 @@
 
     if($(".active").hasClass("initial-flow-start")){
 
-      var isProdFLow = $(".active").parent().hasClass("prod-flow");
-
       $(".active").removeClass("active");
   
       $('#FormUpdate').load('flows/initial-flow.html', function() {
         $(".active").removeClass("active");
 
-        console.log(isProdFLow);
         console.log(MenuOptionVal === undefined);
 
-        if(isProdFLow &&  MenuOptionVal === undefined){
-          $(".initial-tab").addClass("active");
-
-        }else{
-          $(".custom-menu").addClass("active");
-        }
+        $(".custom-menu").addClass("active");
 
         showNextPrevBtn();
       });
