@@ -19,6 +19,7 @@
   
       $('#FormUpdate').load('flows/prod-custom-flow.html', function() {
         $(".prod-flow .tab").first().addClass("active");
+
         showNextPrevBtn();
       });
   
@@ -28,7 +29,8 @@
   
       $('#FormUpdate').load('flows/support-custom-flow.html', function() {
         $(".support-flow .tab").first().addClass("active");
-        
+        console.log("test");
+        console.log(MenuOptionText);
         showNextPrevBtn();
       });
   
@@ -71,7 +73,6 @@
       if($(".active").parent().hasClass("support-flow")){
         var getSiteNumber = Number($('#numSites').val());
         var hasGP = $('input[name=gp]:checked').val();
-        var isCompliant = $('input[name=compQ]:checked').val();
 
         var SupportTotalPrice = MenuPriceLookUp(MenuOptionVal);
 
