@@ -111,12 +111,6 @@
 
         }
 
-        if(isCompliant == "no_compliant"){
-          $(".oem-message").show();
-        }else{
-          $(".oem-message").hide();
-        }
-
         $(".supportPrice").text("$" + new Intl.NumberFormat('en-US').format(SupportTotalPrice));
         $(".finalCost").text("$" + new Intl.NumberFormat('en-US').format(SupportTotalPrice));
       }

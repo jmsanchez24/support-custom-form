@@ -197,18 +197,3 @@ a{
   display: inline-block;
   margin: 8px auto;
 }
-.oem-message{
-  display: none;
-}
-
-p.oem-message {
-  font-size: 14px;
-  background: yellow;
-  color: #000;
-  padding: 9px;
-  display: block;
-  width: 78%;
-  text-align: center;
-  margin: 11px auto;
-  border-radius: 15px;
-}
