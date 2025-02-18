@@ -185,7 +185,7 @@ a{
   visibility: visible;
 }
 
-.SowCta {
+.SowCta, .confluence-prod-link  {
   background-color: #a74dce;
   color: #000;
   border: 1px solid #000;
@@ -196,4 +196,7 @@ a{
   text-decoration: none;
   display: inline-block;
   margin: 8px auto;
+}
+span.prod-customproject-name {
+  text-decoration: underline;
 }
