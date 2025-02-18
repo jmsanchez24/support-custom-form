@@ -21,6 +21,17 @@
         $(".prod-flow .tab").first().addClass("active");
         console.log("test");
         console.log(MenuOptionText);
+        $("prod-customproject-name").text(MenuOptionText);
+
+        if(MenuOptionText == "Homepage Redevelopment"){
+          $(".confluence-prod-link").attr("href", "https://carscommerce.atlassian.net/wiki/spaces/PRODSQUAD/pages/4599251433/Template+Swaps");
+          $(".prod-doc").attr("src", "documents/Custom and Redevelopments Scope Work.pdf");
+        }else{
+          $(".confluence-prod-link").attr("href", "https://carscommerce.atlassian.net/wiki/spaces/PRODSQUAD/pages/2431911308/Custom+and+Redevelopments+Scope+Work+Production#%F0%9F%8E%AD-How-to%3A-Roles-and-Responsibilities");
+          $(".prod-doc").attr("src", "documents/documents/Template Swaps.pdf");
+          
+        }
+        
         showNextPrevBtn();
       });
   
