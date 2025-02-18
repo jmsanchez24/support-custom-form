@@ -22,8 +22,9 @@
         console.log("test");
         console.log(MenuOptionText);
         $("prod-customproject-name").text(MenuOptionText);
-
+        console.log(MenuOptionText == "Homepage Redevelopment");
         if(MenuOptionText == "Homepage Redevelopment"){
+          
           $(".confluence-prod-link").attr("href", "https://carscommerce.atlassian.net/wiki/spaces/PRODSQUAD/pages/4599251433/Template+Swaps");
           $(".prod-doc").attr("src", "documents/Custom and Redevelopments Scope Work.pdf");
         }else{
