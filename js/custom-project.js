@@ -19,7 +19,8 @@
   
       $('#FormUpdate').load('flows/prod-custom-flow.html', function() {
         $(".prod-flow .tab").first().addClass("active");
-
+        console.log("test");
+        console.log(MenuOptionText);
         showNextPrevBtn();
       });
   
@@ -29,8 +30,6 @@
   
       $('#FormUpdate').load('flows/support-custom-flow.html', function() {
         $(".support-flow .tab").first().addClass("active");
-        console.log("test");
-        console.log(MenuOptionText);
         showNextPrevBtn();
       });
   
