@@ -35,6 +35,7 @@
   
       $('#FormUpdate').load('flows/support-custom-flow.html', function() {
         $(".support-flow .tab").first().addClass("active");
+        console.log(MenuOptionVal);
         if(MenuOptionVal == "homepageSupUpdate"){
           console.log("sb support template swap");
         }else{
@@ -161,8 +162,6 @@
   
       $('#FormUpdate').load('flows/initial-flow.html', function() {
         $(".active").removeClass("active");
-
-        console.log(MenuOptionVal === undefined);
 
         $(".custom-menu").addClass("active");
 
