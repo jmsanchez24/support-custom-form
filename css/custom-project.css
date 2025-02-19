@@ -190,7 +190,7 @@ a{
   visibility: visible;
 }
 
-.SowCta, .confluence-prod-link  {
+.SowCta, .confluence-prod-link, .confluence-ms-link  {
   background-color: #a74dce;
   color: #000;
   border: 1px solid #000;
