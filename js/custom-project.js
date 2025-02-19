@@ -44,6 +44,9 @@
   
       $('#FormUpdate').load('flows/ms-custom-flow.html', function() {
         $(".ms-flow .tab").first().addClass("active");
+
+        $(".ms-customproject-name").text(MenuOptionText);
+        
         showNextPrevBtn();
       });
   
