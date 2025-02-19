@@ -10,12 +10,17 @@
     background-color: #370B55;
     margin: 100px auto;
     font-family: sans-serif;
-    padding: 40px;
     width: 80%;
     min-width: 300px;
     border-radius: 12px;
     color: #fff;
+    border: 2px solid #ccc;
   }
+  div#FormUpdate {
+    background: #fff;
+    padding: 10px 30px;
+    color: #000;
+}
   
   h1 {
     text-align: center;  
