@@ -34,12 +34,12 @@
       $(".active").removeClass("active");
   
       $('#FormUpdate').load('flows/support-custom-flow.html', function() {
-        $(".support-flow .tab").first().addClass("active");
-        console.log(MenuOptionVal);
-        if(MenuOptionVal == "homepageSupUpdate"){
-          console.log("sb support template swap");
+        if(MenuOptionVal == "homeTmpSwapSupport"){
+          $(".support-flow .tab.sb-temp-swap").addClass("active");
+          
+
         }else{
-          console.log("regular custom project for support");
+          $(".support-flow .tab.support-number-sites").addClass("active");
 
         }
         showNextPrevBtn();
