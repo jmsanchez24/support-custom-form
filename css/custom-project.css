@@ -72,9 +72,9 @@
   
   .support-flow table {
     width: 80%;
-    background: #fff;
     margin: 0 auto;
     border-collapse: collapse;
+    border: 2px solid #ccc;
   }
   .support-flow table tr {
     color: #000;
