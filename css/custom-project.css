@@ -202,6 +202,6 @@ a{
   display: inline-block;
   margin: 8px auto;
 }
-span.prod-customproject-name {
+span.prod-customproject-name, .ms-customproject-name {
   text-decoration: underline;
 }
