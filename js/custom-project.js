@@ -36,7 +36,7 @@
       $('#FormUpdate').load('flows/support-custom-flow.html', function() {
         if(MenuOptionVal == "homeTmpSwapSupport"){
           $(".support-flow .tab.sb-temp-swap").addClass("active");
-          
+          $(".sb-tmp-text").text(MenuOptionText);
 
         }else{
           $(".support-flow .tab.support-number-sites").addClass("active");
