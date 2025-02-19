@@ -21,10 +21,9 @@
         $(".prod-flow .tab").first().addClass("active");
         $(".prod-customproject-name").text(MenuOptionText);
         if(MenuOptionText == "Homepage Redevelopment"){
-          $(".confluence-prod-link").attr("href", "https://carscommerce.atlassian.net/wiki/spaces/PRODSQUAD/pages/4599251433/Template+Swaps");
-        }else{
           $(".confluence-prod-link").attr("href", "https://carscommerce.atlassian.net/wiki/spaces/PRODSQUAD/pages/2431911308/Custom+and+Redevelopments+Scope+Work+Production#%F0%9F%8E%AD-How-to%3A-Roles-and-Responsibilities");
-          
+        }else{
+          $(".confluence-prod-link").attr("href", "https://carscommerce.atlassian.net/wiki/spaces/PRODSQUAD/pages/4599251433/Template+Swaps");
         }
         
         showNextPrevBtn();
