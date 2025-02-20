@@ -15,6 +15,7 @@
       $('#nextBtn').show();
       $('#prevBtn').hide();
     }
+    
   }
   
   function loadDeptFlow(currentTabOptionChecked){
