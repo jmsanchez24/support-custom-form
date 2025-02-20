@@ -9,7 +9,11 @@
       $('#prevBtn').show();
     }else{
       $('#nextBtn').hide();
-      $('#prevBtn').show();
+    }
+
+    if(!$(".active").hasClass("initial-tab")){
+      $('#nextBtn').show();
+      $('#prevBtn').hide();
     }
   }
   
@@ -80,7 +84,12 @@
       var currentTabOptionChecked = $('.active input[name=customProjMenu]:checked').val();
       MenuOptionVal = $('.active input[name=customProjMenu]:checked').attr("id");
       MenuOptionText = $('.active input[name=customProjMenu]:checked + label .custom-project-label').text();
-      loadDeptFlow(currentTabOptionChecked);
+
+      if(MenuOptionVal == "customProjOther"){
+        window.open("https://carscommerce.enterprise.slack.com/archives/C060TH869ME", "_blank");
+      }else{
+        loadDeptFlow(currentTabOptionChecked);
+      }
 
       
     }else{
