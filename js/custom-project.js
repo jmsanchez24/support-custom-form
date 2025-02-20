@@ -11,7 +11,7 @@
       $('#nextBtn').hide();
     }
 
-    if(!$(".active").hasClass("initial-tab")){
+    if($(".active").hasClass("initial-tab")){
       $('#nextBtn').show();
       $('#prevBtn').hide();
     }
