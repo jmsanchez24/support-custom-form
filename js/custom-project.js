@@ -87,7 +87,8 @@
       MenuOptionText = $('.active input[name=customProjMenu]:checked + label .custom-project-label').text();
 
       if(MenuOptionVal == "customProjOther"){
-        window.location.href = "https://carscommerce.enterprise.slack.com/archives/C060TH869ME";
+        window.open("https://carscommerce.enterprise.slack.com/archives/C060TH869ME", "_blank");
+
 
       }else{
         loadDeptFlow(currentTabOptionChecked);
