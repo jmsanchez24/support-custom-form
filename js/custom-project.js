@@ -9,6 +9,7 @@
       $('#prevBtn').show();
     }else{
       $('#nextBtn').hide();
+      $('#prevBtn').show();
     }
   }
   
