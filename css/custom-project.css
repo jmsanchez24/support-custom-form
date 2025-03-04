@@ -73,6 +73,8 @@
     margin: 0 auto;
     border-collapse: collapse;
     border: 2px solid #ccc;
+    border-collapse: separate;
+    border-radius: 6px;
   }
   .support-flow table tr {
     color: #000;
