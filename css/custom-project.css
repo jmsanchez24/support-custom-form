@@ -205,3 +205,15 @@ a{
 span.prod-customproject-name, .ms-customproject-name {
   text-decoration: underline;
 }
+
+.oem-disclaimer-menu {
+  margin: 31px 150px 0;
+  background: #FFA500;
+  padding: 10px;
+  border-radius: 7px;
+}
+
+.oem-disclaimer-menu a {
+  color: #000;
+  font-weight: bold;
+}
