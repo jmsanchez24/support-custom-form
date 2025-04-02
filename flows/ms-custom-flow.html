@@ -1,5 +1,23 @@
 <div class="ms-flow">
-  <div class="tab initial-flow-start last-tab">
+
+  <div class="tab initial-flow-start validate-form"">
+      <p class="mainQuestion">Will the client be maintaining this page and need fields to easily update the content, or will the template be used for multiple pages?</p>
+      <div class="customOptions question">
+          <div class="option-colum">
+              <input type="radio" id="yes_support" name="isMS" value=is_support>
+               <label for="yes_support">Yes</label>
+              <input type="radio" id="no_support" name="isMS" value=is_ms>
+               <label for="no_support">No</label>
+          </div>
+      </div>
+  </div>
+
+  <div class="tab is-support-proj last-tab">
+    <p class="mainQuestion">It seems you are looking for <span class="ms-customproject-name"></span> </p>
+    <p>This request will be handled by our support team, click next to be able to gather additional information. </p>
+  </div>
+
+  <div class="tab ms-description-tab last-tab">
     <p class="mainQuestion">It seems you are looking for <span class="ms-customproject-name"></span> </p>
     <p>This request will be handled by our creative services team, in order to submit your request please follow the steps listed <a class="confluence-ms-link" href="https://carscommerce.atlassian.net/wiki/spaces/DICS/pages/4135780608/MS+Landing+Pages" target="_blank">here</a>, this will redirect you to their confluence space. </p>
   </div>

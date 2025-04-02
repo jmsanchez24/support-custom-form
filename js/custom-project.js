@@ -96,7 +96,14 @@
 
       
     }else{
+      if(!nextTab.hasClass("last-tab")){
+        $('#nextBtn').show();
+        $('#prevBtn').show();
+      }else{
+        $('#nextBtn').hide();
+      }
 
+      //JS for Support specific flow
       if($(".active").parent().hasClass("support-flow")){
         
         var getSiteNumber = Number($('#numSites').val());
@@ -144,16 +151,29 @@
         $(".finalCost").text("$" + new Intl.NumberFormat('en-US').format(SupportTotalPrice));
       }
   
-      if(!nextTab.hasClass("last-tab")){
-        $('#nextBtn').show();
-        $('#prevBtn').show();
-      }else{
-        $('#nextBtn').hide();
-      }
+
       
-      $(".active").removeClass("active");
-      nextTab.addClass("active");
-    
+      //JS for MS specific flow
+      if($(".active").parent().hasClass("ms-flow")){
+        var IsMsTemplate = $('input[name=isMS]:checked').val();
+        console.log(IsMsTemplate);
+
+        $(".active").removeClass("active");
+
+        if(IsMsTemplate == "is_ms"){
+          $(".ms-description-tab").addClass("active");
+        }else{
+          $(".is-support-proj").addClass("active");
+          
+        }
+      }
+
+      if(!$(".active").parent().hasClass("ms-flow")){
+        console.log(!$(".active").parent().hasClass("ms-flow"));
+        $(".active").removeClass("active");
+        nextTab.addClass("active");
+      }
+
     }
   
   }
