@@ -204,8 +204,11 @@
     }else{
       $(".active").removeClass("active");
 
-      if($(".active").parent().hasClass("ms-flow") && IsMsTemplate == "is_ms"){
-        $(".initial-flow-start ").addClass("active");
+      if($(".active").parent().hasClass("ms-flow")){
+        var IsMsTemplate = $('input[name=isMS]:checked').val();
+        if(IsMsTemplate == "is_ms"){          
+          $(".initial-flow-start").addClass("active");
+        }
       }else{
         prevTab.addClass("active");
       }
