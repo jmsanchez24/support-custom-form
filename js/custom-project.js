@@ -190,7 +190,6 @@
     }else{
       $('#prevBtn').hide();
     }
-    
 
     if($(".active").hasClass("initial-flow-start")){
 
@@ -209,8 +208,6 @@
       console.log(isMsFlow && IsMsTemplate == "is_ms");
       if(isMsFlow && IsMsTemplate == "is_ms"){
           $(".initial-flow-start").addClass("active");
-          prevTab.addClass("active");
-
       }else{
         prevTab.addClass("active");
       }
