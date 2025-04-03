@@ -214,6 +214,8 @@
         console.log(IsMsTemplate);
         if(IsMsTemplate == "is_ms"){          
           $(".initial-flow-start").addClass("active");
+        }else{
+          prevTab.addClass("active");
         }
       }else{
         $(".active").removeClass("active");
