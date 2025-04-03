@@ -164,7 +164,7 @@
           $(".ms-description-tab").addClass("active");
         }else{
           $(".is-support-proj").addClass("active");
-          
+
         }
       }
 
@@ -203,7 +203,12 @@
   
     }else{
       $(".active").removeClass("active");
-      prevTab.addClass("active");
+
+      if($(".active").parent().hasClass("ms-flow") && IsMsTemplate == "is_ms"){
+        $(".initial-flow-start ").addClass("active");
+      }else{
+        prevTab.addClass("active");
+      }
     }
 
 
