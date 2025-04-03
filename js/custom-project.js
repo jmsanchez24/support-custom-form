@@ -179,6 +179,8 @@
   }
   
   function prevslide() {
+    console.log("prev button click");
+
     var prevTab = $(".active").prev();
   
     if(!prevTab.hasClass("initial-tab")){
@@ -190,6 +192,7 @@
     
 
     if($(".active").hasClass("initial-flow-start")){
+      console.log("initial tab");
 
       $(".active").removeClass("active");
   
@@ -202,6 +205,7 @@
       });
   
     }else{
+      console.log("no initial tab");
       $(".active").removeClass("active");
       console.log($(".active").parent().hasClass("ms-flow"));
 
