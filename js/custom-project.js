@@ -175,8 +175,8 @@
         $(".ms-description-tab").addClass("active");
       }else{
         if((".is-support-proj").hasClass("active")){
+          $("#tmpBuild").prop( "checked", true );
           loadDeptFlow("is_support");
-          $( "#tmpBuild" ).prop( "checked", true );
         }else{
           $(".is-support-proj").addClass("active");
         }
