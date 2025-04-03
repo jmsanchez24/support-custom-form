@@ -211,7 +211,7 @@
       if($(".active").parent().hasClass("ms-flow")){
         $(".active").removeClass("active");
         var IsMsTemplate = $('input[name=isMS]:checked').val();
-        console(IsMsTemplate);
+        console.log(IsMsTemplate);
         if(IsMsTemplate == "is_ms"){          
           $(".initial-flow-start").addClass("active");
         }
