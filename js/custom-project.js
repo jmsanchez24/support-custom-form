@@ -174,7 +174,7 @@
       if(IsMsTemplate == "is_ms"){
         $(".ms-description-tab").addClass("active");
       }else{
-        if((".is-support-proj").hasClass("active")){
+        if($(".is-support-proj").hasClass("active")){
           $("#tmpBuild").prop( "checked", true );
           loadDeptFlow("is_support");
         }else{
