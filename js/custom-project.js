@@ -179,10 +179,11 @@
   }
   
   function prevslide() {
-    console.log("prev button click");
 
     var prevTab = $(".active").prev();
-  
+    var isMsFlow = $(".active").parent().hasClass("ms-flow");
+    var IsMsTemplate = $('input[name=isMS]:checked').val();
+
     if(!prevTab.hasClass("initial-tab")){
       $('#nextBtn').show();
       $('#prevBtn').show();
@@ -192,7 +193,6 @@
     
 
     if($(".active").hasClass("initial-flow-start")){
-      console.log("initial tab");
 
       $(".active").removeClass("active");
   
@@ -205,20 +205,13 @@
       });
   
     }else{
-      console.log("no initial tab");
-      console.log($(".active").parent().hasClass("ms-flow"));
-
-      if($(".active").parent().hasClass("ms-flow")){
-        $(".active").removeClass("active");
-        var IsMsTemplate = $('input[name=isMS]:checked').val();
-        console.log(IsMsTemplate);
-        if(IsMsTemplate == "is_ms"){          
+      $(".active").removeClass("active");
+      console.log(isMsFlow && IsMsTemplate == "is_ms");
+      if(isMsFlow && IsMsTemplate == "is_ms"){
           $(".initial-flow-start").addClass("active");
-        }else{
           prevTab.addClass("active");
-        }
+
       }else{
-        $(".active").removeClass("active");
         prevTab.addClass("active");
       }
     }
