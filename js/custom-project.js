@@ -170,7 +170,7 @@
     if(buttonDirection == "next"){
       var IsMsTemplate = $('input[name=isMS]:checked').val();
       var isSupportTab = $(".is-support-proj").hasClass("active");
-      
+
       $(".active").removeClass("active");
 
       if(IsMsTemplate == "is_ms"){
@@ -178,7 +178,7 @@
       }else{
         if(isSupportTab){
           $("#tmpBuild").prop( "checked", true );
-          console.log("Dept call");
+          console.log(MenuOptionVal);
 
           loadDeptFlow("is_support");
         }else{
