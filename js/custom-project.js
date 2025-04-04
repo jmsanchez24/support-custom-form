@@ -74,18 +74,12 @@
   
     var nextTab = $(".active").next();
 
-    var initialTabOptionChecked = $('.active input[name=is_prod]:checked').val();
-
   
-    if($(".active").parent().hasClass("inital-flow") && initialTabOptionChecked == "is_prod"){
+    if($(".active").hasClass("custom-menu")){
 
-      loadDeptFlow(initialTabOptionChecked);
-  
-    }else if($(".active").hasClass("custom-menu")){
-
-      var currentTabOptionChecked = $('.active input[name=customProjMenu]:checked').val();
-      MenuOptionVal = $('.active input[name=customProjMenu]:checked').attr("id");
-      MenuOptionText = $('.active input[name=customProjMenu]:checked + label .custom-project-label').text();
+      var currentTabOptionChecked = $('input[name=customProjMenu]:checked').val();
+      MenuOptionVal = $('input[name=customProjMenu]:checked').attr("id");
+      MenuOptionText = $('input[name=customProjMenu]:checked + label .custom-project-label').text();
 
       if(MenuOptionVal == "customProjOther"){
         window.open("https://carscommerce.enterprise.slack.com/archives/C060TH869ME", "_blank");
@@ -97,12 +91,7 @@
 
       
     }else{
-      if(!nextTab.hasClass("last-tab")){
-        $('#nextBtn').show();
-        $('#prevBtn').show();
-      }else{
-        $('#nextBtn').hide();
-      }
+  
 
       //JS for Support specific flow
       if($(".active").parent().hasClass("support-flow")){
@@ -169,14 +158,16 @@
   function MsFlow(buttonDirection){
     if(buttonDirection == "next"){
       var IsMsTemplate = $('input[name=isMS]:checked').val();
+      var isSupportTab = $(".is-support-proj").hasClass("active");
 
       $(".active").removeClass("active");
+
       if(IsMsTemplate == "is_ms"){
         $(".ms-description-tab").addClass("active");
       }else{
-        if($(".is-support-proj").hasClass("active")){
+        if(isSupportTab){
           $("#tmpBuild").prop( "checked", true );
-          console.log("Dept Function");
+          console.log(MenuOptionVal);
 
           loadDeptFlow("is_support");
         }else{
@@ -187,6 +178,7 @@
     }else{
       $(".initial-flow-start").addClass("active");
     }
+    showNextPrevBtn();
   }
 
   function prevslide() {
