@@ -97,7 +97,6 @@
       if($(".active").parent().hasClass("support-flow")){
 
         SupportFlow(MenuOptionVal, MenuOptionText);
-        showNextPrevBtn();
  
       }
   
@@ -107,6 +106,7 @@
       }else{
         $(".active").removeClass("active");
         nextTab.addClass("active");
+        showNextPrevBtn();
       }
 
     }
