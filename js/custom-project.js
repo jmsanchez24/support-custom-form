@@ -151,6 +151,8 @@
         nextTab.addClass("active");
       }
 
+      showNextPrevBtn();
+
     }
   
   }
