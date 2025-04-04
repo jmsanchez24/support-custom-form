@@ -189,13 +189,6 @@
     var isMsFlow = $(".active").parent().hasClass("ms-flow");
     var IsMsTemplate = $('input[name=isMS]:checked').val();
 
-    if(!prevTab.hasClass("initial-tab")){
-      $('#nextBtn').show();
-      $('#prevBtn').show();
-    }else{
-      $('#prevBtn').hide();
-    }
-
     if($(".active").hasClass("initial-flow-start")){
 
       $(".active").removeClass("active");
