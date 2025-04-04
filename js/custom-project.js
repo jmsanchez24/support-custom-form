@@ -19,6 +19,7 @@
   }
   
   function loadDeptFlow(currentTabOptionChecked){
+    console.log("Dept Function");
     if(currentTabOptionChecked == "is_prod"){
   
       $(".active").removeClass("active");
@@ -170,12 +171,13 @@
       var IsMsTemplate = $('input[name=isMS]:checked').val();
 
       $(".active").removeClass("active");
-
       if(IsMsTemplate == "is_ms"){
         $(".ms-description-tab").addClass("active");
       }else{
         if($(".is-support-proj").hasClass("active")){
           $("#tmpBuild").prop( "checked", true );
+          console.log("Dept call");
+
           loadDeptFlow("is_support");
         }else{
           $(".is-support-proj").addClass("active");
