@@ -1,7 +1,6 @@
 (function($) {
   var MenuOptionVal;
   var MenuOptionText;
- // var SupportTotalPrice;
 
   function showNextPrevBtn(){
     if(!$(".active").hasClass("last-tab")){
@@ -20,6 +19,8 @@
   
   function loadDeptFlow(currentTabOptionChecked){
     console.log("Dept Function");
+    console.log(MenuOptionVal);
+
     if(currentTabOptionChecked == "is_prod"){
   
       $(".active").removeClass("active");
@@ -169,7 +170,8 @@
       }else{
         if(isSupportTab){
           $("#tmpBuild").prop( "checked", true );
-          console.log(MenuOptionVal);
+          MenuOptionVal = "tmpBuild";
+          MenuOptionText = "Custom Page Template ";
 
           loadDeptFlow("is_support");
         }else{
