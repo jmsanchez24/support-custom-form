@@ -84,8 +84,6 @@
 
       if(MenuOptionVal == "customProjOther"){
         window.open("https://carscommerce.enterprise.slack.com/archives/C060TH869ME", "_blank");
-
-
       }else{
         loadDeptFlow(currentTabOptionChecked);
       }
@@ -93,57 +91,13 @@
       
     }else{
   
-
       //JS for Support specific flow
       if($(".active").parent().hasClass("support-flow")){
         
-        var getSiteNumber = Number($('#numSites').val());
-        var hasGP = $('input[name=gp]:checked').val();
-
-        var SupportTotalPrice = MenuPriceLookUp(MenuOptionVal);
-
-        var needsMockUp = $('input[name=supportMockup]:checked').val();
-        var mockUpPrice = 500;
-
-        $(".ProjName").text(MenuOptionText);
-        $(".ProjCost").text("$" + SupportTotalPrice);
-
-
-
-        if(hasGP == "no_gp" && getSiteNumber != 1){
-
-          var costPerSite = getSiteNumber * 125;
-          costPerSite = costPerSite - 125; 
-
-          var siteNumPrice = getSiteNumber * 125;
-          SupportTotalPrice = MenuPriceLookUp(MenuOptionVal) + siteNumPrice ;
-
-          $(".NumSites").text(getSiteNumber);
-          $(".NumSitesCost").text("$" + costPerSite + " ($125/per additional site)");
-
-        }else{
-          $(".NumSites").text(getSiteNumber);
-          $(".NumSitesCost").text("0");
-        }
-
-        if(needsMockUp == "yes_mu"){
-          SupportTotalPrice += mockUpPrice;
-
-          $(".MockupName").text("Yes");
-          $(".MockupCost").text("$" + mockUpPrice);
-
-        }else{
-          $(".MockupName").text("No");
-          $(".MockupCost").text("0");
-
-        }
-
-        $(".supportPrice").text("$" + new Intl.NumberFormat('en-US').format(SupportTotalPrice));
-        $(".finalCost").text("$" + new Intl.NumberFormat('en-US').format(SupportTotalPrice));
+        SupportFlow(MenuOptionVal, MenuOptionText);
+ 
       }
   
-
-      
       //JS for MS specific flow
       if($(".active").parent().hasClass("ms-flow")){
         MsFlow("next");
@@ -152,12 +106,58 @@
         nextTab.addClass("active");
       }
 
-      showNextPrevBtn();
-
     }
   
   }
-  
+  function SupportFlow(MenuOptionVal, MenuOptionText){
+    var getSiteNumber = Number($('#numSites').val());
+    var hasGP = $('input[name=gp]:checked').val();
+
+    var SupportTotalPrice = MenuPriceLookUp(MenuOptionVal);
+
+    var needsMockUp = $('input[name=supportMockup]:checked').val();
+    var mockUpPrice = 500;
+
+    $(".ProjName").text(MenuOptionText);
+    $(".ProjCost").text("$" + SupportTotalPrice);
+
+
+
+    if(hasGP == "no_gp" && getSiteNumber != 1){
+
+      var costPerSite = getSiteNumber * 125;
+      costPerSite = costPerSite - 125; 
+
+      var siteNumPrice = getSiteNumber * 125;
+      SupportTotalPrice = MenuPriceLookUp(MenuOptionVal) + siteNumPrice ;
+
+      $(".NumSites").text(getSiteNumber);
+      $(".NumSitesCost").text("$" + costPerSite + " ($125/per additional site)");
+
+    }else{
+      $(".NumSites").text(getSiteNumber);
+      $(".NumSitesCost").text("0");
+    }
+
+    if(needsMockUp == "yes_mu"){
+      SupportTotalPrice += mockUpPrice;
+
+      $(".MockupName").text("Yes");
+      $(".MockupCost").text("$" + mockUpPrice);
+
+    }else{
+      $(".MockupName").text("No");
+      $(".MockupCost").text("0");
+
+    }
+
+    $(".supportPrice").text("$" + new Intl.NumberFormat('en-US').format(SupportTotalPrice));
+    $(".finalCost").text("$" + new Intl.NumberFormat('en-US').format(SupportTotalPrice));
+
+    showNextPrevBtn();
+
+  }
+
   function MsFlow(buttonDirection){
     if(buttonDirection == "next"){
       var IsMsTemplate = $('input[name=isMS]:checked').val();
