@@ -3,8 +3,7 @@
   var MenuOptionText;
 
   function showNextPrevBtn(){
-    console.log("showNextPrevBtn");
-    console.log(!$(".active").hasClass("last-tab"));
+
     if(!$(".active").hasClass("last-tab")){
       $('#nextBtn').show();
       $('#prevBtn').show();
@@ -102,8 +101,11 @@
   
       //JS for MS specific flow
       if($(".active").parent().hasClass("ms-flow")){
+
         MsFlow("next");
+
       }else{
+
         $(".active").removeClass("active");
         nextTab.addClass("active");
         showNextPrevBtn();
@@ -112,6 +114,7 @@
     }
   
   }
+
   function SupportFlow(MenuOptionVal, MenuOptionText){
 
     var getSiteNumber = Number($('#numSites').val());
@@ -209,9 +212,13 @@
     }else{
       $(".active").removeClass("active");
       if(isMsFlow && IsMsTemplate == "is_ms"){
+
         MsFlow("prev");
+
       }else{
+
         prevTab.addClass("active");
+        
       }
     }
 
