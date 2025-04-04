@@ -169,16 +169,14 @@
   function MsFlow(buttonDirection){
     if(buttonDirection == "next"){
       var IsMsTemplate = $('input[name=isMS]:checked').val();
-      var isSupportTab = $(".is-support-proj").hasClass("active");
 
       $(".active").removeClass("active");
-
       if(IsMsTemplate == "is_ms"){
         $(".ms-description-tab").addClass("active");
       }else{
-        if(isSupportTab){
+        if($(".is-support-proj").hasClass("active")){
           $("#tmpBuild").prop( "checked", true );
-          console.log(MenuOptionVal);
+          console.log("Dept Function");
 
           loadDeptFlow("is_support");
         }else{
