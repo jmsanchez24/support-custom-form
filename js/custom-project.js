@@ -255,7 +255,7 @@
   function MenuPriceLookUp(menuOption){
   
     const menuOptionList = [
-      ["CustomTetmpBuild",750],
+      ["tmpBuild",750],
       ["dlrLocPage", 750],
       ["homepageSupUpdate", 1000],
       ["headerRedev", 625],
