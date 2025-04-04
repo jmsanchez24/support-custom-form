@@ -93,8 +93,10 @@
   
       //JS for Support specific flow
       if($(".active").parent().hasClass("support-flow")){
-        
+
         SupportFlow(MenuOptionVal, MenuOptionText);
+        showNextPrevBtn();
+
  
       }
   
@@ -110,6 +112,7 @@
   
   }
   function SupportFlow(MenuOptionVal, MenuOptionText){
+
     var getSiteNumber = Number($('#numSites').val());
     var hasGP = $('input[name=gp]:checked').val();
 
@@ -154,7 +157,6 @@
     $(".supportPrice").text("$" + new Intl.NumberFormat('en-US').format(SupportTotalPrice));
     $(".finalCost").text("$" + new Intl.NumberFormat('en-US').format(SupportTotalPrice));
 
-    showNextPrevBtn();
 
   }
 
