@@ -3,6 +3,8 @@
   var MenuOptionText;
 
   function showNextPrevBtn(){
+    console.log("showNextPrevBtn");
+    console.log(!$(".active").hasClass("last-tab"));
     if(!$(".active").hasClass("last-tab")){
       $('#nextBtn').show();
       $('#prevBtn').show();
@@ -96,7 +98,6 @@
 
         SupportFlow(MenuOptionVal, MenuOptionText);
         showNextPrevBtn();
-
  
       }
   
