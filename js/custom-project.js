@@ -90,28 +90,19 @@
       }
 
       
-    }else{
-  
-      //JS for Support specific flow
-      if($(".active").parent().hasClass("support-flow")){
+    }else if($(".active").parent().hasClass("support-flow")){
 
         SupportFlow(MenuOptionVal, MenuOptionText);
- 
-      }
-  
-      //JS for MS specific flow
-      if($(".active").parent().hasClass("ms-flow")){
-
-        MsFlow("next");
-
-      }else{
 
         $(".active").removeClass("active");
         nextTab.addClass("active");
         showNextPrevBtn();
-      }
+ 
+    }else if($(".active").parent().hasClass("ms-flow")){
 
-    }
+        MsFlow("next");
+
+      }
   
   }
 
@@ -218,7 +209,7 @@
       }else{
 
         prevTab.addClass("active");
-        
+
       }
     }
 
