@@ -65,7 +65,7 @@
     if (currentFlow === "inital-flow") {
       const $checked = $('input[name=customProjMenu]:checked');
       MenuOptionVal = $checked.attr("id");
-      MenuOptionText = $checked.siblings("label").find(".custom-project-label").text();
+      MenuOptionText = $('input[name=customProjMenu]:checked + label .custom-project-label').text();
       console.log(MenuOptionText);
 
       if (MenuOptionVal === "customProjOther") {
