@@ -1,4 +1,5 @@
 (function($) {
+  console.log("new version");
   let MenuOptionVal;
   let MenuOptionText;
 
@@ -65,6 +66,7 @@
       const $checked = $('input[name=customProjMenu]:checked');
       MenuOptionVal = $checked.attr("id");
       MenuOptionText = $checked.siblings("label").find(".custom-project-label").text();
+      console.log(MenuOptionText);
 
       if (MenuOptionVal === "customProjOther") {
         window.open("https://carscommerce.enterprise.slack.com/archives/C060TH869ME", "_blank");
