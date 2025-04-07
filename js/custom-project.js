@@ -99,7 +99,7 @@
 
     if (hasGP === "no_gp" && siteNum > 1) {
       extraCost = (siteNum - 1) * 125;
-      total += siteNum * 125;
+      total += extraCost;
       console.log( "Number of Sites: " + siteNum);
       console.log( "Sites - 1 x 125 =  " + total);
 
