@@ -1,5 +1,4 @@
 (function($) {
-  console.log("new version");
   let MenuOptionVal;
   let MenuOptionText;
 
@@ -66,7 +65,6 @@
       const $checked = $('input[name=customProjMenu]:checked');
       MenuOptionVal = $checked.attr("id");
       MenuOptionText = $('input[name=customProjMenu]:checked + label .custom-project-label').text();
-      console.log(MenuOptionText);
 
       if (MenuOptionVal === "customProjOther") {
         window.open("https://carscommerce.enterprise.slack.com/archives/C060TH869ME", "_blank");
@@ -92,9 +90,7 @@
 
     let total = MenuPriceLookUp(optionVal);
     const projCost = MenuPriceLookUp(optionVal); 
-    console.log("price look up");
 
-    console.log(total);
     let extraCost = 0;
 
     $(".ProjName").text(optionText);
@@ -103,8 +99,9 @@
       extraCost = (siteNum - 1) * 125;
       total += siteNum * 125;
       console.log("total after number of sites");
+      console.log(siteNum);
 
-      console.log(total);
+      console.log(siteNum + "x 125 = " + total);
 
     }
 
@@ -113,7 +110,6 @@
 
     if (needsMockUp === "yes_mu") {
       total += 500;
-      console.log(total);
 
       $(".MockupName").text("Yes");
       $(".MockupCost").text("$500");
