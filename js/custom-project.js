@@ -89,7 +89,6 @@
     const needsMockUp = $('input[name=supportMockup]:checked').val();
 
     let total = MenuPriceLookUp(optionVal);
-    console.log("Menu Price: " + total);
 
     const projCost = MenuPriceLookUp(optionVal); 
 
@@ -97,11 +96,9 @@
 
     $(".ProjName").text(optionText);
 
-    if (hasGP === "no_gp" && siteNum > 1) {
+    if (siteNum > 1) {
       extraCost = (siteNum - 1) * 125;
       total += extraCost;
-      console.log( "Number of Sites: " + siteNum);
-      console.log( "Sites - 1 x 125 =  " + total);
 
     }
 
@@ -111,7 +108,6 @@
     if (needsMockUp === "yes_mu") {
 
       total += 500;
-      console.log("Yes Mockup: " + total);
 
       $(".MockupName").text("Yes");
       $(".MockupCost").text("$500");
@@ -122,8 +118,6 @@
 
     const formattedPrice = new Intl.NumberFormat('en-US').format(total);
     const formattedProjPrice = new Intl.NumberFormat('en-US').format(projCost);
-
-    console.log(total);
 
     $(".ProjCost").text(`$${formattedProjPrice}`);
     $(".supportPrice, .finalCost").text(`$${formattedPrice}`);
