@@ -89,6 +89,8 @@
     const needsMockUp = $('input[name=supportMockup]:checked').val();
 
     let total = MenuPriceLookUp(optionVal);
+    console.log("Menu Price: " + total);
+
     const projCost = MenuPriceLookUp(optionVal); 
 
     let extraCost = 0;
@@ -98,10 +100,7 @@
     if (hasGP === "no_gp" && siteNum > 1) {
       extraCost = (siteNum - 1) * 125;
       total += siteNum * 125;
-      console.log("total after number of sites");
-      console.log(siteNum);
-
-      console.log(siteNum + "x 125 = " + total);
+      console.log(extraCost + ": " + total);
 
     }
 
@@ -109,7 +108,9 @@
     $(".NumSitesCost").text(extraCost ? `$${extraCost} ($125/per additional site)` : "0");
 
     if (needsMockUp === "yes_mu") {
+
       total += 500;
+      console.log("Yes Mockup: " + total);
 
       $(".MockupName").text("Yes");
       $(".MockupCost").text("$500");
