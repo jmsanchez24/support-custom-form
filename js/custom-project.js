@@ -1,222 +1,310 @@
 (function($) {
-  console.log("new version");
-  let MenuOptionVal;
-  let MenuOptionText;
 
-  function showNextPrevBtn() {
-    const $active = $(".active");
+  // set gloval variables for main menu options values and text
+  var MenuOptionVal;
+  var MenuOptionText;
+  
+    /**
+     * displays the next and previous button if not on the first or last slide.
+     */
+  function showNextPrevBtn(){
 
-    if ($active.hasClass("last-tab")) {
-      $('#nextBtn').hide();
-    } else {
+    if(!$(".active").hasClass("last-tab")){
       $('#nextBtn').show();
+      $('#prevBtn').show();
+    }else{
+      $('#nextBtn').hide();
     }
 
-    $('#prevBtn').toggle(!$active.hasClass("initial-tab"));
+    if($(".active").hasClass("initial-tab")){
+      $('#nextBtn').show();
+      $('#prevBtn').hide();
+    }
+    
   }
+  
+      /**
+     * Calculates the area of a rectangle.
+     * @param {1} currentTabOptionChecked - The width of the rectangle.
+     * @param {number} height - The height of the rectangle.
+     * @returns {number} The area of the rectangle.
+     */
+  function loadDeptFlow(currentTabOptionChecked){
 
-  function loadDeptFlow(selectedOption) {
-    $(".active").removeClass("active");
-
-    const flows = {
-      is_prod: 'flows/prod-custom-flow.html',
-      is_support: 'flows/support-custom-flow.html',
-      is_ms: 'flows/ms-custom-flow.html'
-    };
-
-    const flowPath = flows[selectedOption];
-    if (!flowPath) return;
-
-    $('#FormUpdate').load(flowPath, function() {
-      if (selectedOption === "is_prod") {
+    if(currentTabOptionChecked == "is_prod"){
+  
+      $(".active").removeClass("active");
+  
+      $('#FormUpdate').load('flows/prod-custom-flow.html', function() {
         $(".prod-flow .tab").first().addClass("active");
         $(".prod-customproject-name").text(MenuOptionText);
-
-        const url = MenuOptionText === "Homepage Redevelopment"
-          ? "https://carscommerce.atlassian.net/wiki/spaces/PRODSQUAD/pages/2431911308/Custom+and+Redevelopments+Scope+Work+Production#%F0%9F%8E%AD-How-to%3A-Roles-and-Responsibilities"
-          : "https://carscommerce.atlassian.net/wiki/spaces/PRODSQUAD/pages/4599251433/Template+Swaps";
-
-        $(".confluence-prod-link").attr("href", url);
-      }
-
-      if (selectedOption === "is_support") {
-        if (MenuOptionVal === "homeTmpSwapSupport") {
+        if(MenuOptionText == "Homepage Redevelopment"){
+          $(".confluence-prod-link").attr("href", "https://carscommerce.atlassian.net/wiki/spaces/PRODSQUAD/pages/2431911308/Custom+and+Redevelopments+Scope+Work+Production#%F0%9F%8E%AD-How-to%3A-Roles-and-Responsibilities");
+        }else{
+          $(".confluence-prod-link").attr("href", "https://carscommerce.atlassian.net/wiki/spaces/PRODSQUAD/pages/4599251433/Template+Swaps");
+        }
+        
+        showNextPrevBtn();
+      });
+  
+    }else if(currentTabOptionChecked == "is_support"){
+  
+      $(".active").removeClass("active");
+  
+      $('#FormUpdate').load('flows/support-custom-flow.html', function() {
+        if(MenuOptionVal == "homeTmpSwapSupport"){
           $(".support-flow .tab.sb-temp-swap").addClass("active");
           $(".sb-tmp-text").text(MenuOptionText);
-        } else {
+
+        }else{
           $(".support-flow .tab.support-number-sites").addClass("active");
+
         }
-      }
-
-      if (selectedOption === "is_ms") {
+        showNextPrevBtn();
+      });
+  
+    }else if(currentTabOptionChecked == "is_ms"){  
+  
+      $(".active").removeClass("active");
+  
+      $('#FormUpdate').load('flows/ms-custom-flow.html', function() {
         $(".ms-flow .tab").first().addClass("active");
+
         $(".ms-customproject-name").text(MenuOptionText);
+        
+        showNextPrevBtn();
+      });
+  
       }
-
-      showNextPrevBtn();
-    });
+  
+   
+      
   }
-
+  
   function nextslideLogic() {
-    const $active = $(".active");
-    const nextTab = $active.next();
-    const currentFlow = $active.parent().attr('class');
+  
+    var nextTab = $(".active").next();
+    var currentFlow = $(".active").parent().attr('class');
+  
+    if(currentFlow == "inital-flow"){
 
-    if (currentFlow === "inital-flow") {
-      const $checked = $('input[name=customProjMenu]:checked');
-      MenuOptionVal = $checked.attr("id");
+      var currentTabOptionChecked = $('input[name=customProjMenu]:checked').val();
+      MenuOptionVal = $('input[name=customProjMenu]:checked').attr("id");
       MenuOptionText = $('input[name=customProjMenu]:checked + label .custom-project-label').text();
-      console.log(MenuOptionText);
 
-      if (MenuOptionVal === "customProjOther") {
+      if(MenuOptionVal == "customProjOther"){
         window.open("https://carscommerce.enterprise.slack.com/archives/C060TH869ME", "_blank");
-      } else {
-        loadDeptFlow($checked.val());
+      }else{
+        loadDeptFlow(currentTabOptionChecked);
       }
 
-    } else if (currentFlow === "support-flow") {
-      SupportFlow(MenuOptionVal, MenuOptionText);
-      $active.removeClass("active");
-      nextTab.addClass("active");
-      showNextPrevBtn();
+      
+    }else if(currentFlow == "support-flow"){
 
-    } else if (currentFlow === "ms-flow") {
-      MsFlow("next");
-    }
+        SupportFlow(MenuOptionVal, MenuOptionText);
+
+        $(".active").removeClass("active");
+        nextTab.addClass("active");
+        showNextPrevBtn();
+ 
+    }else if(currentFlow == "ms-flow"){
+
+        MsFlow("next");
+
+      }
+  
   }
 
-  function SupportFlow(optionVal, optionText) {
-    const siteNum = Number($('#numSites').val());
-    const hasGP = $('input[name=gp]:checked').val();
-    const needsMockUp = $('input[name=supportMockup]:checked').val();
+  function SupportFlow(MenuOptionVal, MenuOptionText){
 
-    let total = MenuPriceLookUp(optionVal);
-    let extraCost = 0;
+    var getSiteNumber = Number($('#numSites').val());
+    var hasGP = $('input[name=gp]:checked').val();
 
-    $(".ProjName").text(optionText);
+    var SupportTotalPrice = MenuPriceLookUp(MenuOptionVal);
 
-    if (hasGP === "no_gp" && siteNum > 1) {
-      extraCost = (siteNum - 1) * 125;
-      total += siteNum * 125;
+    var needsMockUp = $('input[name=supportMockup]:checked').val();
+    var mockUpPrice = 500;
+
+    $(".ProjName").text(MenuOptionText);
+    $(".ProjCost").text("$" + SupportTotalPrice);
+
+
+
+    if(hasGP == "no_gp" && getSiteNumber != 1){
+
+      var costPerSite = getSiteNumber * 125;
+      costPerSite = costPerSite - 125; 
+
+      var siteNumPrice = getSiteNumber * 125;
+      SupportTotalPrice = MenuPriceLookUp(MenuOptionVal) + siteNumPrice ;
+
+      $(".NumSites").text(getSiteNumber);
+      $(".NumSitesCost").text("$" + costPerSite + " ($125/per additional site)");
+
+    }else{
+      $(".NumSites").text(getSiteNumber);
+      $(".NumSitesCost").text("0");
     }
 
-    $(".NumSites").text(siteNum);
-    $(".NumSitesCost").text(extraCost ? `$${extraCost} ($125/per additional site)` : "0");
+    if(needsMockUp == "yes_mu"){
+      SupportTotalPrice += mockUpPrice;
 
-    if (needsMockUp === "yes_mu") {
-      total += 500;
       $(".MockupName").text("Yes");
-      $(".MockupCost").text("$500");
-    } else {
+      $(".MockupCost").text("$" + mockUpPrice);
+
+    }else{
       $(".MockupName").text("No");
       $(".MockupCost").text("0");
+
     }
 
-    const formattedPrice = new Intl.NumberFormat('en-US').format(total);
-    $(".ProjCost, .supportPrice, .finalCost").text(`$${formattedPrice}`);
+    $(".supportPrice").text("$" + new Intl.NumberFormat('en-US').format(SupportTotalPrice));
+    $(".finalCost").text("$" + new Intl.NumberFormat('en-US').format(SupportTotalPrice));
+
   }
 
-  function MsFlow(direction) {
-    if (direction === "next") {
-      const isMs = $('input[name=isMS]:checked').val() === "is_ms";
-      const isSupportActive = $(".is-support-proj").hasClass("active");
+  function MsFlow(buttonDirection){
+    if(buttonDirection == "next"){
+      var IsMsTemplate = $('input[name=isMS]:checked').val();
+      var isSupportTab = $(".is-support-proj").hasClass("active");
 
       $(".active").removeClass("active");
 
-      if (isMs) {
+      if(IsMsTemplate == "is_ms"){
         $(".ms-description-tab").addClass("active");
-      } else if (isSupportActive) {
-        $("#tmpBuild").prop("checked", true);
-        MenuOptionVal = "tmpBuild";
-        MenuOptionText = "Custom Page Template ";
-        loadDeptFlow("is_support");
-      } else {
-        $(".is-support-proj").addClass("active");
+      }else{
+        if(isSupportTab){
+          $("#tmpBuild").prop( "checked", true );
+          MenuOptionVal = "tmpBuild";
+          MenuOptionText = "Custom Page Template ";
+
+          loadDeptFlow("is_support");
+        }else{
+          $(".is-support-proj").addClass("active");
+        }
+
       }
-    } else {
+    }else{
       $(".initial-flow-start").addClass("active");
     }
-
     showNextPrevBtn();
   }
 
   function prevslideLogic() {
-    const $active = $(".active");
-    const prevTab = $active.prev();
-    const isMsFlow = $active.parent().hasClass("ms-flow");
-    const isMs = $('input[name=isMS]:checked').val() === "is_ms";
 
-    if ($active.hasClass("initial-flow-start")) {
-      $active.removeClass("active");
+    var prevTab = $(".active").prev();
+    var isMsFlow = $(".active").parent().hasClass("ms-flow");
+    var IsMsTemplate = $('input[name=isMS]:checked').val();
 
+    if($(".active").hasClass("initial-flow-start")){
+
+      $(".active").removeClass("active");
+  
       $('#FormUpdate').load('flows/initial-flow.html', function() {
+        $(".active").removeClass("active");
+
         $(".custom-menu").addClass("active");
+
         showNextPrevBtn();
       });
-    } else {
-      $active.removeClass("active");
+  
+    }else{
+      $(".active").removeClass("active");
+      if(isMsFlow && IsMsTemplate == "is_ms"){
 
-      if (isMsFlow && isMs) {
         MsFlow("prev");
-      } else {
+
+      }else{
+
         prevTab.addClass("active");
+
       }
     }
+
+
   }
-
-  function validateOption() {
-    const $active = $(".active");
-    const $mainQuestion = $active.find(".mainQuestion");
-    const $invalidMsg = $mainQuestion.find(".invalid-message");
-
-    if ($active.hasClass("support-number-sites")) {
-      const siteNumber = Number($active.find("input[type=number]").val());
-
-      if (siteNumber < 1) {
-        if (!$mainQuestion.hasClass("invalid")) {
-          $mainQuestion.addClass("invalid").append("<span class='invalid-message'>Please make a selection</span>");
+  
+  function validateOption(){
+    var currentTabOptionChecked = $(".active input[type=radio]:checked").val();
+  
+    if($(".active").hasClass("support-number-sites")){
+  
+      var siteNumber= $(".active input[type=number]").val();
+      
+      if(siteNumber < 1){
+        if( !$(".active .mainQuestion").hasClass("invalid")){
+          $(".active .mainQuestion").append("<span class='invalid-message'>Please make a selection</span>");
+          $(".active .mainQuestion").addClass("invalid");
+          return false;
         }
-        return false;
+      }else{
+        $(".active .mainQuestion").removeClass("invalid");
+        $(".invalid-message").remove();
+        return true;
       }
-    } else if (!$active.find("input[type=radio]:checked").length) {
-      if (!$mainQuestion.hasClass("invalid")) {
-        $mainQuestion.addClass("invalid").append("<span class='invalid-message'>Please make a selection</span>");
+  
+    }else if(!currentTabOptionChecked){
+  
+      if( !$(".active .mainQuestion").hasClass("invalid")){
+        $(".active .mainQuestion").append("<span class='invalid-message'>Please make a selection</span>");
+        $(".active .mainQuestion").addClass("invalid");
+        
       }
+  
       return false;
+    }else{
+      $(".active .mainQuestion").removeClass("invalid");
+      $(".invalid-message").remove();
+      return true;
     }
-
-    $mainQuestion.removeClass("invalid");
-    $invalidMsg.remove();
-    return true;
+  
+  
+  }
+  
+  function MenuPriceLookUp(menuOption){
+  
+    const menuOptionList = [
+      ["tmpBuild",750],
+      ["dlrLocPage", 750],
+      ["homepageSupUpdate", 1000],
+      ["headerRedev", 625],
+      ["footerRedev", 250],
+      ["sqzPage", 500],
+      ["customNav", 500],
+      ["customPageBlock", 500]
+      ];
+  
+    for(var i = 0; i < menuOptionList.length; i++) {
+  
+      if(menuOptionList[i].includes(menuOption)){
+  
+        return menuOptionList[i][1];
+  
+      }
+  
+    }
+  
+  
   }
 
-  function MenuPriceLookUp(menuOption) {
-    const priceMap = {
-      tmpBuild: 750,
-      dlrLocPage: 750,
-      homepageSupUpdate: 1000,
-      headerRedev: 625,
-      footerRedev: 250,
-      sqzPage: 500,
-      customNav: 500,
-      customPageBlock: 500
-    };
-
-    return priceMap[menuOption] || 0;
-  }
-
-  $(document).ready(function() {
+  jQuery(document).ready(function(){
     $("#FormUpdate").load("flows/initial-flow.html");
-
-    $(document).on('click', '#prevBtn', prevslideLogic);
-
-    $(document).on('click', '#nextBtn', function() {
-      if ($(".active").hasClass("validate-form")) {
-        if (validateOption()) nextslideLogic();
-      } else {
+  
+  
+    $(document).on('click', '#prevBtn', function(){
+      prevslideLogic();
+    });
+  
+    $(document).on('click', '#nextBtn', function(){
+      if($(".active").hasClass("validate-form")){
+        if(validateOption()){
+          nextslideLogic();
+        }
+      }else{
         nextslideLogic();
       }
     });
   });
-
-})(jQuery);
+  
+  
+  }(jQuery));
