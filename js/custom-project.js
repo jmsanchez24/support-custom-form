@@ -91,6 +91,9 @@
     const needsMockUp = $('input[name=supportMockup]:checked').val();
 
     let total = MenuPriceLookUp(optionVal);
+    const projCost = MenuPriceLookUp(optionVal); 
+    console.log("price look up");
+
     console.log(total);
     let extraCost = 0;
 
@@ -99,6 +102,8 @@
     if (hasGP === "no_gp" && siteNum > 1) {
       extraCost = (siteNum - 1) * 125;
       total += siteNum * 125;
+      console.log("total after number of sites");
+
       console.log(total);
 
     }
@@ -118,9 +123,13 @@
     }
 
     const formattedPrice = new Intl.NumberFormat('en-US').format(total);
+    const formattedProjPrice = new Intl.NumberFormat('en-US').format(projCost);
+
     console.log(total);
 
-    $(".ProjCost, .supportPrice, .finalCost").text(`$${formattedPrice}`);
+    $(".ProjCost").text(`$${formattedProjPrice}`);
+    $(".supportPrice, .finalCost").text(`$${formattedPrice}`);
+
   }
 
   function MsFlow(direction) {
