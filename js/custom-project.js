@@ -1,6 +1,7 @@
 (function($) {
   var MenuOptionVal;
   var MenuOptionText;
+  
 
   function showNextPrevBtn(){
 
@@ -19,8 +20,6 @@
   }
   
   function loadDeptFlow(currentTabOptionChecked){
-    console.log("Dept Function");
-    console.log(MenuOptionVal);
 
     if(currentTabOptionChecked == "is_prod"){
   
@@ -72,12 +71,12 @@
       
   }
   
-  function nextslide() {
+  function nextslideLogic() {
   
     var nextTab = $(".active").next();
-
+    var currentFlow = $(".active").parent().attr('class');
   
-    if($(".active").hasClass("custom-menu")){
+    if(currentFlow == "inital-flow"){
 
       var currentTabOptionChecked = $('input[name=customProjMenu]:checked').val();
       MenuOptionVal = $('input[name=customProjMenu]:checked').attr("id");
@@ -90,7 +89,7 @@
       }
 
       
-    }else if($(".active").parent().hasClass("support-flow")){
+    }else if(currentFlow == "support-flow"){
 
         SupportFlow(MenuOptionVal, MenuOptionText);
 
@@ -98,7 +97,7 @@
         nextTab.addClass("active");
         showNextPrevBtn();
  
-    }else if($(".active").parent().hasClass("ms-flow")){
+    }else if(currentFlow == "ms-flow"){
 
         MsFlow("next");
 
@@ -182,7 +181,7 @@
     showNextPrevBtn();
   }
 
-  function prevslide() {
+  function prevslideLogic() {
 
     var prevTab = $(".active").prev();
     var isMsFlow = $(".active").parent().hasClass("ms-flow");
@@ -284,16 +283,16 @@
   
   
     $(document).on('click', '#prevBtn', function(){
-      prevslide();
+      prevslideLogic();
     });
   
     $(document).on('click', '#nextBtn', function(){
       if($(".active").hasClass("validate-form")){
         if(validateOption()){
-          nextslide();
+          nextslideLogic();
         }
       }else{
-        nextslide();
+        nextslideLogic();
       }
     });
   });
