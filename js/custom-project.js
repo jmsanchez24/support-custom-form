@@ -170,6 +170,8 @@
         prevTab.addClass("active");
       }
     }
+    showNextPrevBtn();
+
   }
 
   function validateOption() {
