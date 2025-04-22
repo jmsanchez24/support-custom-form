@@ -138,9 +138,7 @@
         MenuOptionVal = "tmpBuild";
         MenuOptionText = "Custom Page Template ";
         loadDeptFlow("is_support");
-      } else {
-        $(".is-support-proj").addClass("active");
-      }
+      } 
     } else {
       $(".initial-flow-start").addClass("active");
     }
