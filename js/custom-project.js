@@ -80,6 +80,8 @@
 
     } else if (currentFlow === "ms-flow") {
       MsFlow("next");
+      $active.removeClass("active");
+      nextTab.addClass("active");
     }
   }
 
