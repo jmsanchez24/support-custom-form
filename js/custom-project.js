@@ -129,7 +129,7 @@
   function MsFlow(direction) {
     if (direction === "next") {
       const isMs = $('input[name=isMS]:checked').val() === "is_ms";
-      const initialisMS = isMs = $('input[name=InitialisMS]:checked').val() === "is_ms";
+      const initialisMS = $('input[name=InitialisMS]:checked').val() === "is_ms";
       const isSupportActive = $(".is-support-proj").hasClass("active");
 
       $(".active").removeClass("active");
