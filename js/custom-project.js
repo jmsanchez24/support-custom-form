@@ -80,8 +80,6 @@
 
     } else if (currentFlow === "ms-flow") {
       MsFlow("next");
-      $active.removeClass("active");
-      nextTab.addClass("active");
     }
   }
 
@@ -127,6 +125,9 @@
   }
 
   function MsFlow(direction) {
+    const $active = $(".active");
+    const nextTab = $active.next();
+
     if (direction === "next") {
       const isMs = $('input[name=isMS]:checked').val() === "is_ms";
       const initialisMS = $('input[name=InitialisMS]:checked').val() === "is_ms";
@@ -141,7 +142,10 @@
         MenuOptionVal = "tmpBuild";
         MenuOptionText = "Custom Page Template ";
         loadDeptFlow("is_support");
-      } 
+      } else{
+        $active.removeClass("active");
+        nextTab.addClass("active");
+      }
     } else {
       $(".initial-flow-start").addClass("active");
     }
