@@ -128,7 +128,7 @@
     const $active = $(".active");
     const nextTab = $active.next();
 
-    if (direction === "next") {
+
       const isMs = $('input[name=isMS]:checked').val() === "is_ms";
       const initialisMS = $('input[name=InitialisMS]:checked').val() === "is_ms";
       const isSupportActive = $(".is-support-proj").hasClass("active");
@@ -146,10 +146,7 @@
         $active.removeClass("active");
         nextTab.addClass("active");
       }
-    } else {
-      $(".initial-flow-start").addClass("active");
-    }
-
+      
     showNextPrevBtn();
   }
 
@@ -158,6 +155,8 @@
     const prevTab = $active.prev();
     const isMsFlow = $active.parent().hasClass("ms-flow");
     const isMs = $('input[name=isMS]:checked').val() === "is_ms";
+    const InitialisMs = $('input[name=InitialisMS]:checked').val() === "is_ms";
+
 
     if ($active.hasClass("initial-flow-start")) {
       $active.removeClass("active");
@@ -169,8 +168,8 @@
     } else {
       $active.removeClass("active");
 
-      if (isMsFlow && isMs) {
-        MsFlow("prev");
+      if ((isMsFlow && isMs) || (isMsFlow && InitialisMs)) {
+        $(".initial-flow-start").addClass("active");
       } else {
         prevTab.addClass("active");
       }
