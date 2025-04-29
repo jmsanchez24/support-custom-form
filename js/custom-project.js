@@ -146,7 +146,7 @@
         $active.removeClass("active");
         nextTab.addClass("active");
       }
-      
+
     showNextPrevBtn();
   }
 
@@ -168,9 +168,11 @@
     } else {
       $active.removeClass("active");
 
-      if ((isMsFlow && isMs) || (isMsFlow && InitialisMs)) {
+      if (isMsFlow && isMs && InitialisMs) {
+        $(".ms-template-question").addClass("active");
+      } else if(isMsFlow && isMs && !InitialisMs){
         $(".initial-flow-start").addClass("active");
-      } else {
+      }else {
         prevTab.addClass("active");
       }
     }
