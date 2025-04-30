@@ -168,10 +168,12 @@
     } else {
       $active.removeClass("active");
 
-      if (isMsFlow && isMs && InitialisMs) {
-        $(".ms-template-question").addClass("active");
-      } else if(isMsFlow && isMs && !InitialisMs){
+      if (isMsFlow && isMs) {
+        console.log("is MS on both question");
         $(".initial-flow-start").addClass("active");
+      } else if(isMsFlow && !isMs && InitialisMs){
+        console.log("is MS on first question");
+        $(".ms-template-question").addClass("active");
       }else {
         prevTab.addClass("active");
       }
