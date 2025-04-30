@@ -170,10 +170,10 @@
 
       if (isMsFlow && isMs) {
         console.log("is MS on both question");
-        $(".initial-flow-start").addClass("active");
+        $(".ms-template-question").addClass("active");
       } else if(isMsFlow && !isMs && InitialisMs){
         console.log("is MS on first question");
-        $(".ms-template-question").addClass("active");
+        $(".initial-flow-start").addClass("active");
       }else {
         console.log("Default");
         prevTab.addClass("active");
