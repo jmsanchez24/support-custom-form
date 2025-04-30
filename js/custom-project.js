@@ -175,6 +175,7 @@
         console.log("is MS on first question");
         $(".ms-template-question").addClass("active");
       }else {
+        console.log("Default");
         prevTab.addClass("active");
       }
     }
