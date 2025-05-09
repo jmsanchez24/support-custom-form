@@ -177,13 +177,11 @@ a{
   position: absolute;
   z-index: 1;
   border: 1px solid #ccc;
-  margin-left: 10px;
+  margin-left: -2000%;
   font-family: sans-serif;
   font-size: 13px;
-
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 1;
+  left: 0;
+  top: 107%;
 }
 
 .tooltip:hover .tooltiptext {
