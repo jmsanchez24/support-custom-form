@@ -215,7 +215,8 @@
       footerRedev: 250,
       sqzPage: 500,
       customNav: 500,
-      customPageBlock: 500
+      customPageBlock: 500,
+      customSpriteSheet: 500
     };
 
     return priceMap[menuOption] || 0;
